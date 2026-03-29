@@ -2236,8 +2236,8 @@ function renderHabitos() {
     dl.innerHTML = allHabits.map((t) => {
       const d = S.completedDaily.some(id => String(id) === String(t.id));
       const isCustom = typeof t.id === 'string' && t.id.startsWith('custom_');
-      return `<div class="task-row ${d ? "done" : ""}" style="position:relative">
-            <div style="display:flex; flex:1; align-items:center" onclick="toggleDaily('${t.id}')">
+      return `<div class="task-row ${d ? "done" : ""}" style="position:relative" onclick="toggleDaily('${t.id}')">
+            <div style="display:flex; flex:1; align-items:center">
               <div class="task-check">${d ? "✓" : ""}</div>
               <div class="task-label">${t.icon} ${t.name}</div>
               <span class="task-badge" style="${d ? "background:rgba(16,185,129,.15);color:var(--green)" : ""}">${d ? "✓ " : "+"}${t.xp} XP</span>
