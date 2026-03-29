@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>KAISUI - Sistema de Evolução Pessoal</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#7c3aed">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="KAISUI">
+    <link rel="apple-touch-icon" href="img/icon.png">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="css/style.css">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Service Worker registrado!', reg))
+            .catch(err => console.log('Erro ao registrar Service Worker:', err));
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="screen-area">
+      <!-- ═══ HOME ═══ -->
+      <div class="screen active" id="screen-home">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 16px 0 4px;
+          "
+        >
+          <div>
+            <div style="font-size: 13px; color: var(--muted2)">
+              Bem-vindo de volta,
+            </div>
+            <div
+              style="
+                font-family: &quot;Orbitron&quot;, monospace;
+                font-size: 22px;
+                font-weight: 900;
+              "
+            >
+              Kaisui <span style="color: var(--purple)">⚔</span>
+            </div>
+          </div>
+          <div
+            style="
+              width: 44px;
+              height: 44px;
+              border-radius: 50%;
+              background: var(--card2);
+              border: 1px solid var(--border);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: &quot;Orbitron&quot;, monospace;
+              font-size: 13px;
+              font-weight: 700;
+              color: var(--purple);
+              cursor: pointer;
+            "
+            onclick="goTo('perfil')"
+          >
+            KS
+          </div>
+        </div>
+
+        <!-- XP Card -->
+        <div class="card" style="border-color: rgba(124, 58, 237, 0.3)">
+          <div class="card-glow-top"></div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 4px;
+            "
+          >
+            <div style="display: flex; align-items: center; gap: 8px">
+              <span>🏆</span>
+              <span style="font-size: 15px; font-weight: 700">Progresso</span>
+            </div>
+            <span
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 12px;
+                color: var(--red);
+                font-weight: 700;
+              "
+              >Nível <span id="h-lvl">0</span></span
+            >
+          </div>
+          <div
+            style="
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 11px;
+              color: var(--purple);
+              margin-bottom: 6px;
+            "
+          >
+            Nível <span id="h-lvl2">0</span>
+          </div>
+          <div class="prog-bar">
+            <div class="prog-fill xp" id="h-xpbar" style="width: 0%"></div>
+          </div>
+          <div
+            style="
+              text-align: right;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 10px;
+              color: var(--muted);
+              margin-top: 4px;
+            "
+          >
+            <span id="h-xpin">0</span>/1000 XP
+          </div>
+
+          <div class="home-stats" style="margin-top: 12px">
+            <div class="stat-box">
+              <span class="val" style="color: var(--purple)" id="h-xptot"
+                >0</span
+              >
+              <span class="lbl">⚡ XP Total</span>
+            </div>
+            <div class="stat-box">
+              <span class="val" style="color: var(--gold)" id="h-coins">0</span>
+              <span class="lbl">🪙 Coins</span>
+            </div>
+            <div class="stat-box">
+              <span class="val" style="color: var(--blue)" id="h-xpday">0</span>
+              <span class="lbl">📅 XP Hoje</span>
+            </div>
+          </div>
+          
+          <!-- Multiplier Display -->
+          <div id="multiplier-display" style="margin-top: 8px; text-align: center;"></div>
+        </div>
+
+        <!-- Action Grid -->
+        <div class="action-grid">
+          <div class="action-box" onclick="goTo('habitos')">
+            <span class="a-icon">✅</span>
+            <div class="a-val" style="color: var(--green)" id="h-daily-done">
+              0
+            </div>
+            <span class="a-lbl">Hábitos Hoje</span>
+            <div
+              style="
+                font-size: 9px;
+                color: var(--muted);
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                margin-top: 2px;
+              "
+            >
+              / <span id="h-daily-total">20</span>
+            </div>
+          </div>
+          <div class="action-box" onclick="goTo('missoes')">
+            <span class="a-icon">⚔</span>
+            <div class="a-val" style="color: var(--purple)" id="h-missions">
+              0
+            </div>
+            <span class="a-lbl">Missões</span>
+          </div>
+          <div class="action-box" onclick="goTo('treinos100')">
+            <span class="a-icon">🔥</span>
+            <div class="a-val" style="color: var(--red)" id="h-treinos">0</div>
+            <span class="a-lbl">Hábitos Total</span>
+          </div>
+        </div>
+
+        <!-- Next Reward Preview -->
+        <div class="card" id="next-reward-card" style="cursor: pointer; border-color: rgba(245, 158, 11, 0.3);" onclick="showStore()">
+          <div class="card-glow-top gold"></div>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <span style="font-size: 20px">🎁</span>
+            <div style="flex: 1">
+              <div style="font-size: 13px; font-weight: 700; color: var(--gold)" id="next-reward-name">Carregando...</div>
+              <div style="font-size: 10px; color: var(--muted)" id="next-reward-cost">0 coins</div>
+            </div>
+            <div style="font-size: 12px; color: var(--gold)" id="next-reward-progress">0%</div>
+          </div>
+        </div>
+
+        <!-- Tarefas do Dia -->
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+          "
+        >
+          <div>
+            <div
+              style="
+                font-size: 17px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              "
+            >
+              📋 Tarefas do Dia
+            </div>
+            <div style="font-size: 12px; color: var(--muted)" id="h-tasks-sub">
+              0/3 concluídas
+            </div>
+          </div>
+          <button
+            style="
+              background: var(--card2);
+              border: 1px solid var(--border);
+              color: var(--muted2);
+              padding: 6px 14px;
+              border-radius: 8px;
+              font-size: 12px;
+              font-family: &quot;Rajdhani&quot;, sans-serif;
+              font-weight: 600;
+              cursor: pointer;
+            "
+            onclick="goTo('habitos')"
+          >
+            Editar
+          </button>
+        </div>
+        <div id="h-task-list"></div>
+
+        <!-- Hábitos Pendentes -->
+        <div style="margin-top: 8px; margin-bottom: 8px">
+          <div
+            style="
+              font-size: 17px;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              margin-bottom: 2px;
+            "
+          >
+            ⚡ Hábitos Pendentes
+          </div>
+          <div
+            style="font-size: 12px; color: var(--muted); margin-bottom: 10px"
+          >
+            Complete para ganhar XP
+          </div>
+        </div>
+        <div id="h-habits-list"></div>
+      </div>
+
+      <!-- ═══ HÁBITOS ═══ -->
+      <div class="screen" id="screen-habitos">
+        <div style="padding: 16px 0 4px">
+          <div class="page-title">⚡ Hábitos & Protocolo</div>
+          <div class="page-subtitle">Seu sistema diário de evolução</div>
+        </div>
+
+        <div class="card" style="border-color: rgba(16, 185, 129, 0.3)">
+          <div
+            class="card-glow-top"
+            style="
+              background: linear-gradient(
+                90deg,
+                transparent,
+                var(--green),
+                transparent
+              );
+            "
+          ></div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 6px;
+            "
+          >
+            <span style="font-size: 13px; font-weight: 600"
+              >Protocolo Diário</span
+            >
+            <span
+              style="
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 11px;
+                color: var(--green);
+              "
+              id="proto-count"
+              >0/20</span
+            >
+          </div>
+          <div class="prog-bar">
+            <div class="prog-fill green" id="proto-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div id="daily-list"></div>
+        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;" onclick="openAddHabit()">+ Adicionar Hábito</button>
+
+        <div style="margin-top: 16px; margin-bottom: 8px">
+          <div class="section-label" style="color: var(--red)">
+            ☠ MODO PUNIÇÃO
+          </div>
+          <div
+            style="
+              font-size: 12px;
+              color: var(--muted);
+              margin-bottom: 10px;
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+            "
+          >
+            "A fraqueza tem um preço."
+          </div>
+        </div>
+        <div id="bad-habits-list"></div>
+
+        <!-- HP -->
+        <div class="card" style="margin-top: 8px; text-align: center">
+          <div
+            style="
+              font-family: &quot;Orbitron&quot;, monospace;
+              font-size: 30px;
+              font-weight: 900;
+              color: var(--red);
+            "
+            id="hp-val"
+          >
+            100
+          </div>
+          <div
+            style="
+              font-size: 11px;
+              color: var(--muted);
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              margin-bottom: 8px;
+            "
+          >
+            PONTOS DE VIDA
+          </div>
+          <div class="prog-bar" style="height: 8px; margin-bottom: 12px">
+            <div class="prog-fill hp" id="hp-bar" style="width: 100%"></div>
+          </div>
+          <button
+            class="btn"
+            id="recover-hp-btn"
+            style="
+              background: rgba(16, 185, 129, 0.15);
+              color: var(--green);
+              border: 1px solid rgba(16, 185, 129, 0.3);
+              font-family: &quot;Orbitron&quot;, monospace;
+              font-size: 10px;
+              letter-spacing: 2px;
+            "
+            onclick="recoverHP()"
+          >
+            + RECUPERAR 20 HP (50 COINS)
+          </button>
+          <div class="hp-recovery-limit" id="hp-recovery-limit">Recuperações hoje: 0/3</div>
+        </div>
+      </div>
+
+      <!-- ═══ MISSÕES ═══ -->
+      <div class="screen" id="screen-missoes">
+        <div style="padding: 16px 0 4px">
+          <div class="page-title">◎ Missões</div>
+          <div class="page-subtitle">Conquiste sua evolução</div>
+        </div>
+        <div class="tier-pills">
+          <button class="tier-pill active" onclick="setMFilter('all', this)">
+            Todas
+          </button>
+          <button class="tier-pill" onclick="setMFilter('easy', this)">
+            Easy
+          </button>
+          <button class="tier-pill" onclick="setMFilter('normal', this)">
+            Normal
+          </button>
+          <button class="tier-pill" onclick="setMFilter('hard', this)">
+            Hard
+          </button>
+          <button class="tier-pill" onclick="setMFilter('epic', this)">
+            Epic
+          </button>
+          <button class="tier-pill" onclick="setMFilter('legendary', this)">
+            Legendary
+          </button>
+        </div>
+        <div id="mission-list"></div>
+        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;" onclick="openAddMission()">+ Adicionar Missão</button>
+      </div>
+
+      <!-- ═══ ACADEMIA ═══ -->
+      <div class="screen" id="screen-academia">
+        <div style="padding: 16px 0 4px">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 2px;
+            "
+          >
+            <span style="font-size: 22px">🏆</span>
+            <div class="page-title" style="margin: 0">Academia</div>
+          </div>
+          <div class="page-subtitle">Monitore seu progresso e cargas</div>
+        </div>
+        <div id="gym-list"></div>
+      </div>
+
+      <!-- ═══ CALISTENIA ═══ -->
+      <div class="screen" id="screen-calistenia">
+        <div style="padding: 16px 0 4px">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 2px;
+            "
+          >
+            <span style="font-size: 22px">🤸</span>
+            <div class="page-title" style="margin: 0">Calistenia</div>
+          </div>
+          <div class="page-subtitle">Progressão de Skills</div>
+        </div>
+        <div id="calistenia-list"></div>
+      </div>
+      <button
+        class="fab"
+        id="gym-fab"
+        style="display: none"
+        onclick="openAddGym()"
+      >
+        +
+      </button>
+
+      <!-- ═══ 100 TREINOS ═══ -->
+      <div class="screen" id="screen-treinos100">
+        <div style="padding: 16px 0 4px">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 2px;
+            "
+          >
+            <span style="font-size: 22px">🏆</span>
+            <div class="page-title" style="margin: 0">Desafio 100 Treinos</div>
+          </div>
+          <div class="page-subtitle">
+            Complete 100 treinos e se torne uma lenda!
+          </div>
+        </div>
+
+        <div
+          class="card"
+          style="text-align: center; border-color: rgba(124, 58, 237, 0.3)"
+        >
+          <div
+            style="
+              font-family: &quot;Orbitron&quot;, monospace;
+              font-size: 56px;
+              font-weight: 900;
+              color: var(--purple);
+            "
+            id="t100-count"
+          >
+            0
+          </div>
+          <div
+            style="
+              font-size: 12px;
+              color: var(--muted);
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              margin-bottom: 10px;
+            "
+          >
+            Treinos Completos
+          </div>
+          <div class="prog-bar">
+            <div class="prog-fill xp" id="t100-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="streak-grid">
+          <div class="streak-box fire">
+            <span class="streak-val" style="color: var(--red)" id="t100-streak"
+              >0</span
+            >
+            <span class="streak-lbl">🔥 Streak Atual</span>
+          </div>
+          <div class="streak-box trophy">
+            <span
+              class="streak-val"
+              style="color: var(--gold)"
+              id="t100-maxstreak"
+              >0</span
+            >
+            <span class="streak-lbl">🏆 Max Streak</span>
+          </div>
+        </div>
+
+        <div
+          id="t100-message"
+          style="
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted2);
+            margin-bottom: 12px;
+          "
+        >
+          🚀 Comece sua jornada! Cada treino te deixa mais forte!
+        </div>
+
+        <div class="treino-grid" id="t100-grid"></div>
+        <div style="height: 20px"></div>
+      </div>
+
+      <!-- ═══ ROLEPLAYS ═══ -->
+      <div class="screen" id="screen-roleplays">
+        <div style="padding: 16px 0 4px">
+          <div class="page-title">🎭 Roleplays</div>
+          <div class="page-subtitle">
+            Simule situações reais. Execute em voz alta.
+          </div>
+        </div>
+        <div id="roleplay-list"></div>
+        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;" onclick="openAddRoleplay()">+ Adicionar Roleplay</button>
+      </div>
+
+      <!-- ═══ AI ALTER-EGO ═══ -->
+      <div class="screen" id="screen-ai">
+        <div class="ai-header">
+          <div class="ai-avatar">🧠</div>
+          <div class="ai-name-block">
+            <div class="ai-name">KAI — ALTER-EGO AI</div>
+            <div class="ai-status">● online · pronto para te desafiar</div>
+          </div>
+        </div>
+        <div class="quick-prompts" id="qp-area"></div>
+        <div class="chat-area" id="chat-area"></div>
+        <div class="chat-input-area">
+          <textarea
+            class="chat-input"
+            id="chat-input"
+            placeholder="Fale com seu alter-ego..."
+            rows="1"
+            onkeydown="handleChatKey(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+          <button class="chat-send" id="chat-send" onclick="sendMessage()">
+            ➤
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══ PERFIL ═══ -->
+      <div class="screen" id="screen-perfil">
+        <div style="padding: 16px 0 4px">
+          <div class="page-title">👤 Perfil</div>
+        </div>
+        <div
+          class="card"
+          style="text-align: center; border-color: rgba(124, 58, 237, 0.3)"
+        >
+          <div class="avatar-ring">KS</div>
+          <div
+            style="
+              font-family: &quot;Orbitron&quot;, monospace;
+              font-size: 18px;
+              font-weight: 900;
+            "
+            id="p-name"
+          >
+            KAISUI
+          </div>
+          <div
+            style="
+              font-size: 12px;
+              color: var(--gold);
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              letter-spacing: 2px;
+              margin: 4px 0;
+            "
+            id="p-rank"
+          >
+            O MEDROSO
+          </div>
+          <div class="rank-chips">
+            <span
+              class="rank-chip"
+              style="color: var(--red); border-color: rgba(239, 68, 68, 0.3)"
+              >LVL <span id="p-lvl">0</span></span
+            >
+            <span
+              class="rank-chip"
+              style="color: var(--gold); border-color: rgba(245, 158, 11, 0.3)"
+              ><span id="p-coins2">0</span> COINS</span
+            >
+            <span
+              class="rank-chip"
+              style="
+                color: var(--purple);
+                border-color: rgba(124, 58, 237, 0.3);
+              "
+              ><span id="p-xp">0</span> XP</span
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="section-label" style="color: var(--purple)">
+            ATRIBUTOS
+          </div>
+          <div id="p-stats"></div>
+        </div>
+        <div
+          class="card"
+          style="cursor: pointer; border-color: rgba(245, 158, 11, 0.3)"
+          onclick="showStore()"
+        >
+          <div class="card-glow-top gold"></div>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <span style="font-size: 24px">★</span>
+            <div>
+              <div
+                style="font-size: 15px; font-weight: 700; color: var(--gold)"
+              >
+                Loja de Recompensas
+              </div>
+              <div style="font-size: 12px; color: var(--muted)">
+                Gaste suas coins em conquistas
+              </div>
+            </div>
+            <div
+              style="margin-left: auto; font-size: 18px; color: var(--muted)"
+            >
+              ›
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn btn-outline"
+          style="margin-top: 4px"
+          onclick="resetGame()"
+        >
+          ⟳ RESETAR PROGRESSO
+        </button>
+        <div style="height: 16px"></div>
+      </div>
+    </div>
+    <!-- end screen-area -->
+
+    <!-- ── BOTTOM NAV ── -->
+    <nav class="nav">
+      <button class="nav-btn active" onclick="goTo('home')" id="nav-home">
+        <span class="nav-icon">🏠</span>Início
+      </button>
+      <button class="nav-btn" onclick="goTo('habitos')" id="nav-habitos">
+        <span class="nav-icon">⚡</span>Hábitos
+      </button>
+      <button class="nav-btn" onclick="goTo('missoes')" id="nav-missoes">
+        <span class="nav-icon">⚔</span>Missões
+      </button>
+      <button class="nav-btn" onclick="goTo('academia')" id="nav-academia">
+        <span class="nav-icon">🏋️</span>Academia
+      </button>
+      <button class="nav-btn" onclick="goTo('calistenia')" id="nav-calistenia">
+        <span class="nav-icon">🤸</span>Calistenia
+      </button>
+      <button class="nav-btn" onclick="goTo('treinos100')" id="nav-treinos100">
+        <span class="nav-icon">🏆</span>100 Trai.
+      </button>
+      <button class="nav-btn" onclick="goTo('roleplays')" id="nav-roleplays">
+        <span class="nav-icon">🎭</span>Roleplays
+      </button>
+      <button class="nav-btn" onclick="goTo('ai')" id="nav-ai">
+        <span class="nav-icon">🧠</span>Alter-Ego
+      </button>
+    </nav>
+
+    <!-- ── MODALS ── -->
+    <div class="overlay" id="overlay" onclick="closeOverlay(event)">
+      <div class="modal" id="modal-body"></div>
+    </div>
+
+    <!-- ── TOASTS ── -->
+    <div class="toast" id="toast"></div>
+    <div class="lvlup" id="lvlup"></div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

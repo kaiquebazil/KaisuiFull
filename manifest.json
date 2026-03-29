@@ -1,0 +1,27 @@
+{
+  "name": "KAISUI - Sistema de Evolução Pessoal",
+  "short_name": "KAISUI",
+  "description": "Sistema de evolução pessoal focado em hábitos e missões.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "img/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
