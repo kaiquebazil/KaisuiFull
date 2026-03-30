@@ -1106,72 +1106,72 @@ const CALISTHENICS_DB = [
     id: "handstand",
     name: "Handstand (Parada de Mão)",
     progressions: [
-      { id: "hs1", name: "Pike Plank (30s)" },
-      { id: "hs2", name: "Pike Push-ups (10 reps)" },
-      { id: "hs3", name: "Wall Walk" },
-      { id: "hs4", name: "Wall Handstand (30s)" },
-      { id: "hs5", name: "Wall Handstand (60s)" },
-      { id: "hs6", name: "Wall Handstand Shoulder Taps" },
-      { id: "hs7", name: "Free Handstand Kick-ups" },
-      { id: "hs8", name: "Free Handstand (5s)" },
-      { id: "hs9", name: "Free Handstand (10s+)" },
-      { id: "hs10", name: "Handstand Push-ups" }
+      { id: "hs1", name: "Pike Plank (30s)", url: "https://www.youtube.com/results?search_query=calisthenics+pike+plank" },
+      { id: "hs2", name: "Pike Push-ups (10 reps)", url: "https://www.youtube.com/results?search_query=calisthenics+pike+push+ups" },
+      { id: "hs3", name: "Wall Walk", url: "https://www.youtube.com/results?search_query=calisthenics+wall+walk" },
+      { id: "hs4", name: "Wall Handstand (30s)", url: "https://www.youtube.com/results?search_query=calisthenics+wall+handstand" },
+      { id: "hs5", name: "Wall Handstand (60s)", url: "https://www.youtube.com/results?search_query=calisthenics+wall+handstand" },
+      { id: "hs6", name: "Wall Handstand Shoulder Taps", url: "https://www.youtube.com/results?search_query=calisthenics+wall+handstand+shoulder+taps" },
+      { id: "hs7", name: "Free Handstand Kick-ups", url: "https://www.youtube.com/results?search_query=calisthenics+handstand+kick+ups" },
+      { id: "hs8", name: "Free Handstand (5s)", url: "https://www.youtube.com/results?search_query=calisthenics+free+handstand" },
+      { id: "hs9", name: "Free Handstand (10s+)", url: "https://www.youtube.com/results?search_query=calisthenics+free+handstand" },
+      { id: "hs10", name: "Handstand Push-ups", url: "https://www.youtube.com/results?search_query=calisthenics+handstand+push+ups" }
     ]
   },
   {
     id: "planche",
     name: "Planche",
     progressions: [
-      { id: "pl1", name: "Planche Lean (20s)" },
-      { id: "pl2", name: "Frog Stand (20s)" },
-      { id: "pl3", name: "Advanced Frog Stand (20s)" },
-      { id: "pl4", name: "Tuck Planche (10s)" },
-      { id: "pl5", name: "Advanced Tuck Planche (10s)" },
-      { id: "pl6", name: "Straddle Planche (5s)" },
-      { id: "pl7", name: "Full Planche (3s+)" }
+      { id: "pl1", name: "Planche Lean (20s)", url: "https://www.youtube.com/results?search_query=calisthenics+planche+lean" },
+      { id: "pl2", name: "Frog Stand (20s)", url: "https://www.youtube.com/results?search_query=calisthenics+frog+stand" },
+      { id: "pl3", name: "Advanced Frog Stand (20s)", url: "https://www.youtube.com/results?search_query=calisthenics+advanced+frog+stand" },
+      { id: "pl4", name: "Tuck Planche (10s)", url: "https://www.youtube.com/results?search_query=calisthenics+tuck+planche" },
+      { id: "pl5", name: "Advanced Tuck Planche (10s)", url: "https://www.youtube.com/results?search_query=calisthenics+advanced+tuck+planche" },
+      { id: "pl6", name: "Straddle Planche (5s)", url: "https://www.youtube.com/results?search_query=calisthenics+straddle+planche" },
+      { id: "pl7", name: "Full Planche (3s+)", url: "https://www.youtube.com/results?search_query=calisthenics+full+planche" }
     ]
   },
   {
     id: "muscleup",
     name: "Muscle-up",
     progressions: [
-      { id: "mu1", name: "Pull-ups Explosivos (Peito na barra)" },
-      { id: "mu2", name: "Straight Bar Dips" },
-      { id: "mu3", name: "Muscle-up Negativo" },
-      { id: "mu4", name: "Muscle-up com Elástico" },
-      { id: "mu5", name: "Primeiro Muscle-up Limpo" },
-      { id: "mu6", name: "Muscle-up (5+ reps)" }
+      { id: "mu1", name: "Pull-ups Explosivos (Peito na barra)", url: "https://www.youtube.com/results?search_query=calisthenics+explosive+pull+ups" },
+      { id: "mu2", name: "Straight Bar Dips", url: "https://www.youtube.com/results?search_query=calisthenics+straight+bar+dips" },
+      { id: "mu3", name: "Muscle-up Negativo", url: "https://www.youtube.com/results?search_query=calisthenics+negative+muscle+up" },
+      { id: "mu4", name: "Muscle-up com Elástico", url: "https://www.youtube.com/results?search_query=calisthenics+banded+muscle+up" },
+      { id: "mu5", name: "Primeiro Muscle-up Limpo", url: "https://www.youtube.com/results?search_query=calisthenics+first+muscle+up" },
+      { id: "mu6", name: "Muscle-up (5+ reps)", url: "https://www.youtube.com/results?search_query=calisthenics+muscle+up+reps" }
     ]
   },
   {
     id: "frontlever",
     name: "Front Lever",
     progressions: [
-      { id: "fl1", name: "Tuck Front Lever (20s)" },
-      { id: "fl2", name: "Advanced Tuck Front Lever (15s)" },
-      { id: "fl3", name: "One Leg Front Lever (10s)" },
-      { id: "fl4", name: "Straddle Front Lever (5s)" },
-      { id: "fl5", name: "Full Front Lever (3s+)" }
+      { id: "fl1", name: "Tuck Front Lever (20s)", url: "https://www.youtube.com/results?search_query=calisthenics+tuck+front+lever" },
+      { id: "fl2", name: "Advanced Tuck Front Lever (15s)", url: "https://www.youtube.com/results?search_query=calisthenics+advanced+tuck+front+lever" },
+      { id: "fl3", name: "One Leg Front Lever (10s)", url: "https://www.youtube.com/results?search_query=calisthenics+one+leg+front+lever" },
+      { id: "fl4", name: "Straddle Front Lever (5s)", url: "https://www.youtube.com/results?search_query=calisthenics+straddle+front+lever" },
+      { id: "fl5", name: "Full Front Lever (3s+)", url: "https://www.youtube.com/results?search_query=calisthenics+full+front+lever" }
     ]
   },
   {
     id: "humanflag",
     name: "Human Flag (Bandeira Humana)",
     progressions: [
-      { id: "hf1", name: "Vertical Flag" },
-      { id: "hf2", name: "Tuck Human Flag" },
-      { id: "hf3", name: "Straddle Human Flag" },
-      { id: "hf4", name: "Full Human Flag" }
+      { id: "hf1", name: "Vertical Flag", url: "https://www.youtube.com/results?search_query=calisthenics+vertical+human+flag" },
+      { id: "hf2", name: "Tuck Human Flag", url: "https://www.youtube.com/results?search_query=calisthenics+tuck+human+flag" },
+      { id: "hf3", name: "Straddle Human Flag", url: "https://www.youtube.com/results?search_query=calisthenics+straddle+human+flag" },
+      { id: "hf4", name: "Full Human Flag", url: "https://www.youtube.com/results?search_query=calisthenics+full+human+flag" }
     ]
   },
   {
     id: "lsit",
     name: "L-Sit",
     progressions: [
-      { id: "ls1", name: "Tuck L-Sit (Chão)" },
-      { id: "ls2", name: "L-Sit com uma perna (20s)" },
-      { id: "ls3", name: "Full L-Sit (10s)" },
-      { id: "ls4", name: "V-Sit" }
+      { id: "ls1", name: "Tuck L-Sit (Chão)", url: "https://www.youtube.com/results?search_query=calisthenics+tuck+l+sit" },
+      { id: "ls2", name: "L-Sit com uma perna (20s)", url: "https://www.youtube.com/results?search_query=calisthenics+one+leg+l+sit" },
+      { id: "ls3", name: "Full L-Sit (10s)", url: "https://www.youtube.com/results?search_query=calisthenics+full+l+sit" },
+      { id: "ls4", name: "V-Sit", url: "https://www.youtube.com/results?search_query=calisthenics+v+sit" }
     ]
   }
 ];
@@ -1568,9 +1568,45 @@ const REWARDS = [
     req: 20,
     emoji: "👔",
   },
+  // --- TIER 4: ARMADURA TECNOLÓGICA (INSIDER) ---
+  {
+    id: 31,
+    name: "Tech T-Shirt (Insider)",
+    cost: 160,
+    req: 5,
+    emoji: "👕",
+  },
+  {
+    id: 32,
+    name: "Performance T-Shirt 2.0 (Insider)",
+    cost: 180,
+    req: 8,
+    emoji: "🏃",
+  },
+  {
+    id: 33,
+    name: "Everyday Shorts (Insider)",
+    cost: 250,
+    req: 10,
+    emoji: "🩳",
+  },
+  {
+    id: 34,
+    name: "Heavy Hoodie (Insider)",
+    cost: 450,
+    req: 15,
+    emoji: "🧥",
+  },
+  {
+    id: 35,
+    name: "Camisa FutureForm (Insider)",
+    cost: 500,
+    req: 20,
+    emoji: "👔",
+  },
 
-  // --- TIER 4: O ENGENHEIRO DE ALTO NÍVEL (Lvl 31-50) ---
-  { id: 31, name: "MacBook Pro M3 Max", cost: 15000, req: 45, emoji: "🍎" },
+  // --- TIER 5: O ENGENHEIRO DE ALTO NÍVEL (Lvl 31-50) ---
+  { id: 36, name: "MacBook Pro M3 Max", cost: 15000, req: 45, emoji: "🍎" },
   {
     id: 32,
     name: "Retiro Espiritual/Silêncio",
@@ -3752,9 +3788,16 @@ function renderCalistenia() {
         ${skill.progressions.map(prog => {
           const done = S.calisthenics[prog.id];
           return `
-            <div class="task-row ${done ? 'done' : ''}" onclick="toggleCalistenia('${prog.id}')" style="padding: 10px; margin-bottom: 5px; background: rgba(255,255,255,0.03); border-radius: 8px;">
-              <div class="task-check">${done ? '✓' : ''}</div>
-              <div class="task-label" style="font-size:13px">${prog.name}</div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;">
+              <div class="task-row ${done ? 'done' : ''}" onclick="toggleCalistenia('${prog.id}')" style="flex: 1; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px; display: flex; align-items: center;">
+                <div class="task-check">${done ? '✓' : ''}</div>
+                <div class="task-label" style="font-size:13px">${prog.name}</div>
+              </div>
+              ${prog.url ? `
+                <a href="${prog.url}" target="_blank" style="text-decoration: none; background: var(--card2); border: 1px solid var(--border); padding: 10px; border-radius: 8px; color: var(--purple); font-size: 12px; display: flex; align-items: center; justify-content: center;">
+                  🎬
+                </a>
+              ` : ''}
             </div>
           `;
         }).join('')}
