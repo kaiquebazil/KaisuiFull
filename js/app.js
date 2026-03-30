@@ -1422,6 +1422,28 @@ const KARATE_DB = [
         ]
       },
       {
+        title: "Tsuki-waza (Técnicas de Punhos)",
+        moves: [
+          { name: "Oi-zuki", url: "https://www.youtube.com/results?search_query=karate+oi-zuki" },
+          { name: "San-bom-zuki", url: "https://www.youtube.com/results?search_query=karate+san-bom-zuki" },
+          { name: "Guiako-zuki", url: "https://www.youtube.com/results?search_query=karate+gyaku-zuki" }
+        ]
+      },
+      {
+        title: "Gueri-waza (Técnicas de Pernas)",
+        moves: [
+          { name: "Mãe-gueri", url: "https://www.youtube.com/results?search_query=karate+mae-geri" },
+          { name: "Mawashi-gueri", url: "https://www.youtube.com/results?search_query=karate+mawashi-geri" },
+          { name: "Ioco-gueri-em kiba-dachi", url: "https://www.youtube.com/results?search_query=karate+yoko-geri+kiba-dachi" }
+        ]
+      },
+      {
+        title: "Kinhon-ippon",
+        moves: [
+          { name: "Jodan-thudan-guedan", url: "https://www.youtube.com/results?search_query=karate+kihon+ippon+kumite+jodan+chudan+gedan" }
+        ]
+      },
+      {
         title: "Katas",
         moves: [
           { name: "Taikyoku Shodan", url: "https://www.youtube.com/watch?v=jH6bv4GDpp0" },
