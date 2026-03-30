@@ -37,7 +37,7 @@ const DAILY_TASKS = [
     stat: "int",
     icon: "🎓",
   },
-  { id: 7, name: "Avançar Projeto SaaS/TCC", xp: 200, stat: "int", icon: "🏗️" },
+  { id: 7, name: "Anki", xp: 200, stat: "int", icon: "🃏" },
   {
     id: 8,
     name: "Ler 1 página Bell Hooks (Reflexão)",
