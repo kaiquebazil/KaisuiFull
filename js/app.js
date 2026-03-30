@@ -1392,6 +1392,46 @@ const ROLEPLAYS_DB = [
   },
 ];
 
+const KARATE_DB = [
+  {
+    belt: "Faixa Branca",
+    color: "#ffffff",
+    textColor: "#000000",
+    sections: [
+      {
+        title: "Dachi (Bases)",
+        moves: [
+          { name: "Reisuku-dachi", url: "https://www.youtube.com/watch?v=pxOJRJ9pIYM" },
+          { name: "Musubi-dachi", url: "https://www.youtube.com/watch?v=wGkfrQ9PJ0Q" },
+          { name: "Shizentai", url: "https://www.youtube.com/watch?v=f4GYC1gv7Uw" },
+          { name: "Zenkutso-dachi", url: "https://www.youtube.com/watch?v=SwfH3J9QsPA" },
+          { name: "Kokutso-dachi", url: "https://www.youtube.com/watch?v=dQSv2wKgBiE" },
+          { name: "Kiba-dachi", url: "https://www.youtube.com/watch?v=CMu2a1-Av84" }
+        ]
+      },
+      {
+        title: "Uke-waza (Técnicas de Defesas)",
+        moves: [
+          { name: "Jodan-age-uke", url: "https://www.youtube.com/watch?v=rLAUO-_Mzpo" },
+          { name: "Soto-uke", url: "https://www.youtube.com/watch?v=4RWYnJKNiGc" },
+          { name: "Uchi-uke", url: "https://www.youtube.com/watch?v=neAANL1sATY" },
+          { name: "Jodan-jiju-uke", url: "https://www.youtube.com/watch?v=jnl_oJN2CmE" },
+          { name: "Guedan-jiju-uke", url: "https://www.youtube.com/watch?v=wx-KNqQRPyg" },
+          { name: "Shuto-uke", url: "https://www.youtube.com/watch?v=t2YAyFd2xuc" },
+          { name: "Guedan-barai", url: "https://www.youtube.com/watch?v=JcJgbp8P4sI" }
+        ]
+      },
+      {
+        title: "Katas",
+        moves: [
+          { name: "Taikyoku Shodan", url: "https://www.youtube.com/watch?v=jH6bv4GDpp0" },
+          { name: "Heian Shodan", url: "https://www.youtube.com/watch?v=q1Rg8rUpjjw" }
+        ]
+      }
+    ]
+  }
+];
+
 const REWARDS = [
   // --- TIER 1: RITUAIS BÁSICOS (Lvl 1-5) ---
   { id: 1, name: "Café Gourmet em Local Novo", cost: 50, req: 1, emoji: "☕" },
@@ -2126,6 +2166,9 @@ function renderScreen(n) {
       break;
     case "calistenia":
       renderCalistenia();
+      break;
+    case "karate":
+      renderKarate();
       break;
   }
 }
@@ -3696,6 +3739,38 @@ function renderCalistenia() {
       </div>
     </div>
   `).join("");
+}
+
+function renderKarate() {
+  const content = document.getElementById("karate-content");
+  if (!content) return;
+
+  content.innerHTML = KARATE_DB.map(belt => `
+    <div class="card" style="border-left: 8px solid ${belt.color}; margin-bottom: 20px;">
+      <div style="background: ${belt.color}; color: ${belt.textColor}; padding: 4px 12px; border-radius: 4px; display: inline-block; font-family: 'Orbitron'; font-weight: 700; font-size: 14px; margin-bottom: 15px;">
+        ${belt.belt.toUpperCase()}
+      </div>
+      
+      ${belt.sections.map(section => `
+        <div style="margin-bottom: 15px;">
+          <div style="font-size: 12px; color: var(--muted); font-weight: 700; margin-bottom: 8px; letter-spacing: 1px;">
+            ${section.title.toUpperCase()}
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+            ${section.moves.map(move => `
+              <a href="${move.url}" target="_blank" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 12px; border-radius: 10px; transition: 0.2s;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 18px;">🥋</span>
+                  <span style="color: white; font-weight: 500;">${move.name}</span>
+                </div>
+                <span style="color: var(--purple); font-size: 12px;">VER VÍDEO ›</span>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
 }
 
 function toggleCalistenia(id) {
