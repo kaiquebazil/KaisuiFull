@@ -37,7 +37,7 @@ const DAILY_TASKS = [
     stat: "int",
     icon: "🎓",
   },
-  { id: 7, name: "Anki", xp: 200, stat: "int", icon: "🃏" },
+  { id: 7, name: "Anki", xp: 200, stat: "int", icon: "🧠" },
   {
     id: 8,
     name: "Ler 1 página Bell Hooks (Reflexão)",
@@ -61,10 +61,10 @@ const DAILY_TASKS = [
   },
   {
     id: 11,
-    name: "Ler 1 página em inglês (Voz Alta)",
+    name: "10 Flexões Assim que Acordar",
     xp: 80,
-    stat: "cha",
-    icon: "📚",
+    stat: "for",
+    icon: "💪",
   },
   {
     id: 12,
