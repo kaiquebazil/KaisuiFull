@@ -15,20 +15,12 @@ const RANKS = [
 const DAILY_TASKS = [
   { id: 1, name: "Acordar 05:30 sem snooze", xp: 200, stat: "dis", icon: "⏰" },
   {
-    id: 2,
-    name: "Banho Gelado (Protocolo Criogênico)",
-    xp: 150,
-    stat: "dis",
-    icon: "🧊",
-  },
-  {
     id: 3,
     name: "Planear 3 tarefas principais",
     xp: 100,
     stat: "dis",
     icon: "📋",
   },
-  { id: 4, name: "Arrumar o Templo (Cama)", xp: 50, stat: "dis", icon: "🛏️" },
   { id: 5, name: "Código (1h Deep Work)", xp: 250, stat: "int", icon: "💻" },
   {
     id: 6,
@@ -39,47 +31,11 @@ const DAILY_TASKS = [
   },
   { id: 7, name: "Anki", xp: 200, stat: "int", icon: "🧠" },
   {
-    id: 8,
-    name: "Ler 1 página Bell Hooks (Reflexão)",
-    xp: 100,
-    stat: "int",
-    icon: "📖",
-  },
-  {
-    id: 9,
-    name: "Estudo de Inglês Ativo (30min)",
-    xp: 150,
-    stat: "int",
-    icon: "🇺🇸",
-  },
-  {
-    id: 10,
-    name: "Narrar o Dia em Inglês (10min)",
-    xp: 120,
-    stat: "cha",
-    icon: "🗣️",
-  },
-  {
     id: 11,
     name: "10 Flexões Assim que Acordar",
     xp: 80,
     stat: "for",
     icon: "💪",
-  },
-  {
-    id: 12,
-    name: "Phone OS em Inglês (Check)",
-    xp: 50,
-    stat: "cha",
-    icon: "📱",
-  },
-  { 
-
-    id: 17,
-    name: "Sem distrações (Redes Sociais/Tiktok)",
-    xp: 150,
-    stat: "for",
-    icon: "🚫",
   },
   {
     id: 13,
@@ -101,27 +57,6 @@ const DAILY_TASKS = [
     xp: 100,
     stat: "for",
     icon: "💧",
-  },
-  {
-    id: 16,
-    name: "Alimentação Limpa (Zero Processados)",
-    xp: 120,
-    stat: "for",
-    icon: "🥩",
-  },
-  {
-    id: 18,
-    name: "Fazer um Vídeo em português",
-    xp: 100,
-    stat: "dis",
-    icon: "📹",
-  },
-  {
-    id: 19,
-    name: "Gravar Video em Inglês (2min)",
-    xp: 80,
-    stat: "int",
-    icon: "🎥",
   },
   { id: 20, name: "Dormir antes das 22:30", xp: 150, stat: "dis", icon: "🌙" },
 ];
