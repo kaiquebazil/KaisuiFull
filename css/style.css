@@ -403,6 +403,159 @@
         text-align: right;
       }
 
+      /* ── NOVO SISTEMA DE MISSÕES ── */
+      .mission-section-title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--muted);
+        margin: 16px 0 10px 4px;
+        font-family: "Orbitron", monospace;
+      }
+      .mission-card {
+        background: var(--card2);
+        border-radius: 14px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+        border: 1px solid transparent;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        position: relative;
+      }
+      .mission-card:hover {
+        border-color: var(--border-blue);
+        transform: translateY(-2px);
+      }
+      .mission-card.active {
+        border-color: var(--purple);
+        background: linear-gradient(135deg, var(--card2) 0%, rgba(124, 58, 237, 0.08) 100%);
+      }
+      .mission-card.done {
+        opacity: 0.5;
+        background: var(--card);
+      }
+      .mission-card.done .mission-name {
+        text-decoration: line-through;
+      }
+      .mission-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .mission-tier-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        letter-spacing: 1px;
+      }
+      .mission-status-icon {
+        font-size: 14px;
+      }
+      .mission-body {
+        margin-bottom: 10px;
+      }
+      .mission-name {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        line-height: 1.3;
+      }
+      .mission-desc {
+        font-size: 12px;
+        color: var(--muted2);
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+      .mission-progress-bar {
+        height: 6px;
+        background: var(--card3);
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 6px;
+      }
+      .mission-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--purple), var(--blue));
+        border-radius: 3px;
+        transition: width 0.3s ease;
+      }
+      .mission-progress-text {
+        font-size: 11px;
+        color: var(--muted);
+        font-family: "JetBrains Mono", monospace;
+        text-align: right;
+      }
+      .mission-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+      }
+      .mission-rewards {
+        display: flex;
+        gap: 10px;
+      }
+      .mission-xp-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--blue);
+        background: rgba(59, 130, 246, 0.15);
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+      .mission-coin-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--gold);
+        background: rgba(245, 158, 11, 0.15);
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+      .mission-stat {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        color: var(--purple);
+        font-weight: 600;
+      }
+      .mission-delete-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: none;
+        border: none;
+        color: var(--red);
+        cursor: pointer;
+        font-size: 20px;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.2s;
+      }
+      .mission-delete-btn:hover {
+        background: rgba(239, 68, 68, 0.1);
+      }
+
+      .active-mission-card {
+        background: var(--card2);
+        border-radius: 10px;
+        padding: 12px 14px;
+        margin-bottom: 8px;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .active-mission-card:hover {
+        border-color: var(--purple);
+        background: rgba(124, 58, 237, 0.05);
+      }
+
       /* ── TIER FILTER ── */
       .tier-pills {
         display: flex;

@@ -141,15 +141,19 @@ const MISSIONS = [
   {
     id: 1,
     name: "Acorde às 05h por 7 dias",
+    desc: "Acorde às 5h da manhã por 7 dias consecutivos. Sem soneca, sem desculpas.",
     tier: "easy",
     cat: "Disciplina",
     xp: 300,
     coins: 50,
     stat: "dis",
+    target: 7,
+    unit: "dias",
   },
   {
     id: 2,
     name: "1 módulo de inglês no Duolingo",
+    desc: "Complete pelo menos 1 módulo completo no Duolingo.",
     tier: "easy",
     cat: "Inteligência",
     xp: 100,
@@ -159,24 +163,31 @@ const MISSIONS = [
   {
     id: 3,
     name: "Leia 20 páginas técnicas",
+    desc: "Leia 20 páginas de um livro técnico ou documentação de programação.",
     tier: "easy",
     cat: "Inteligência",
     xp: 150,
     coins: 25,
     stat: "int",
+    target: 20,
+    unit: "páginas",
   },
   {
     id: 4,
     name: "100 push-ups em um dia",
+    desc: "Complete 100 flexões em um único dia. Pode dividir em séries.",
     tier: "easy",
     cat: "Força",
     xp: 200,
     coins: 30,
     stat: "for",
+    target: 100,
+    unit: "push-ups",
   },
   {
     id: 5,
     name: "Medite 10 minutos",
+    desc: "Medite por pelo menos 10 minutos sem interrupções.",
     tier: "easy",
     cat: "Disciplina",
     xp: 100,
@@ -186,6 +197,7 @@ const MISSIONS = [
   {
     id: 6,
     name: "Escreva em inglês 15min",
+    desc: "Escreva sobre qualquer tópico em inglês por 15 minutos sem parar.",
     tier: "easy",
     cat: "Carisma",
     xp: 120,
@@ -195,15 +207,19 @@ const MISSIONS = [
   {
     id: 7,
     name: "3 problemas no LeetCode",
+    desc: "Resolva 3 problemas de código no LeetCode (qualquer dificuldade).",
     tier: "easy",
     cat: "Coding",
     xp: 250,
     coins: 40,
     stat: "int",
+    target: 3,
+    unit: "problemas",
   },
   {
     id: 8,
     name: "Palestra TED em inglês",
+    desc: "Assista uma palestra TED completa em inglês e faça anotações.",
     tier: "easy",
     cat: "Inteligência",
     xp: 130,
@@ -213,33 +229,43 @@ const MISSIONS = [
   {
     id: 9,
     name: "10.000 passos em um dia",
+    desc: "Complete 10.000 passos em um único dia. Use um app de contagem.",
     tier: "easy",
     cat: "Força",
     xp: 150,
     coins: 25,
     stat: "for",
+    target: 10000,
+    unit: "passos",
   },
   {
     id: 10,
     name: "3L de água por 5 dias",
+    desc: "Beba 3 litros de água por dia durante 5 dias consecutivos.",
     tier: "easy",
     cat: "Disciplina",
     xp: 180,
     coins: 30,
     stat: "dis",
+    target: 5,
+    unit: "dias",
   },
   {
     id: 34,
     name: "Banho gelado por 3 dias",
+    desc: "Tome banho gelado por 3 dias consecutivos. Resistência mental pura.",
     tier: "easy",
     cat: "Disciplina",
     xp: 200,
     coins: 40,
     stat: "dis",
+    target: 3,
+    unit: "dias",
   },
   {
     id: 35,
     name: "Cozinhe sua própria refeição (Saudável)",
+    desc: "Prepare uma refeição saudável do zero, sem alimentos processados.",
     tier: "easy",
     cat: "Disciplina",
     xp: 100,
@@ -251,6 +277,7 @@ const MISSIONS = [
   {
     id: 11,
     name: "Curso online de 4h+",
+    desc: "Complete 4 horas de um curso online em uma única sessão ou dividido.",
     tier: "normal",
     cat: "Inteligência",
     xp: 500,
@@ -260,6 +287,7 @@ const MISSIONS = [
   {
     id: 12,
     name: "Projeto GitHub do zero",
+    desc: "Crie um projeto do zero no GitHub com README, estrutura e pelo menos 5 commits.",
     tier: "normal",
     cat: "Coding",
     xp: 600,
@@ -269,33 +297,43 @@ const MISSIONS = [
   {
     id: 13,
     name: "Academia 20x em 1 mês",
+    desc: "Vá à academia 20 vezes em um mês. Máximo 1 por dia conta.",
     tier: "normal",
     cat: "Força",
     xp: 700,
     coins: 150,
     stat: "for",
+    target: 20,
+    unit: "treinos",
   },
   {
     id: 14,
     name: "30 dias sem redes sociais",
+    desc: "Fique 30 dias sem Instagram, TikTok, Twitter ou qualquer rede social.",
     tier: "normal",
     cat: "Disciplina",
     xp: 800,
     coins: 200,
     stat: "dis",
+    target: 30,
+    unit: "dias",
   },
   {
     id: 15,
     name: "1000 push-ups em uma semana",
+    desc: "Complete 1000 flexões em 7 dias. Média de ~143 por dia.",
     tier: "normal",
     cat: "Força",
     xp: 600,
     coins: 130,
     stat: "for",
+    target: 1000,
+    unit: "push-ups",
   },
   {
     id: 16,
     name: "Leia um livro inteiro em inglês",
+    desc: "Leia um livro completo em inglês, do início ao fim.",
     tier: "normal",
     cat: "Inteligência",
     xp: 700,
@@ -305,6 +343,7 @@ const MISSIONS = [
   {
     id: 17,
     name: "Contribua em open-source",
+    desc: "Faça uma contribuição real em um projeto open-source (PR aceito).",
     tier: "normal",
     cat: "Coding",
     xp: 650,
@@ -314,6 +353,7 @@ const MISSIONS = [
   {
     id: 18,
     name: "1h conversa com nativo",
+    desc: "Converse por 1 hora completa com um nativo de inglês.",
     tier: "normal",
     cat: "Carisma",
     xp: 550,
@@ -323,15 +363,19 @@ const MISSIONS = [
   {
     id: 36,
     name: "Aprenda 50 novas palavras em inglês",
+    desc: "Aprenda 50 palavras novas em inglês e use em frases.",
     tier: "normal",
     cat: "Inteligência",
     xp: 400,
     coins: 80,
     stat: "int",
+    target: 50,
+    unit: "palavras",
   },
   {
     id: 37,
     name: "Refatore um código antigo seu",
+    desc: "Pegue um código antigo seu e melhore significativamente sua qualidade.",
     tier: "normal",
     cat: "Coding",
     xp: 450,
@@ -341,15 +385,19 @@ const MISSIONS = [
   {
     id: 38,
     name: "Jejum intermitente 16h por 7 dias",
+    desc: "Pratique jejum 16:8 (16h em jejum, 8h para comer) por 7 dias.",
     tier: "normal",
     cat: "Disciplina",
     xp: 600,
     coins: 120,
     stat: "dis",
+    target: 7,
+    unit: "dias",
   },
   {
     id: 39,
     name: "Corra 5km sem parar",
+    desc: "Corra 5km sem parar, mesmo que devagar. Sem caminhar.",
     tier: "normal",
     cat: "Força",
     xp: 500,
@@ -359,6 +407,7 @@ const MISSIONS = [
   {
     id: 40,
     name: "Configure um ambiente Linux/Docker",
+    desc: "Configure um ambiente de desenvolvimento completo com Linux ou Docker.",
     tier: "normal",
     cat: "Coding",
     xp: 550,
@@ -368,6 +417,7 @@ const MISSIONS = [
   {
     id: 41,
     name: "Escreva um artigo técnico (Medium/Dev.to)",
+    desc: "Escreva e publique um artigo técnico sobre programação ou produtividade.",
     tier: "normal",
     cat: "Carisma",
     xp: 600,
@@ -377,6 +427,7 @@ const MISSIONS = [
   {
     id: 42,
     name: "Crie um bot simples (Discord/Telegram)",
+    desc: "Desenvolva um bot funcional para Discord ou Telegram.",
     tier: "normal",
     cat: "Coding",
     xp: 500,
@@ -386,15 +437,19 @@ const MISSIONS = [
   {
     id: 43,
     name: "7 dias sem açúcar refinado",
+    desc: "Fique 7 dias completos sem consumir açúcar refinado.",
     tier: "normal",
     cat: "Disciplina",
     xp: 500,
     coins: 100,
     stat: "dis",
+    target: 7,
+    unit: "dias",
   },
   {
     id: 44,
     name: "Assista um filme sem legendas",
+    desc: "Assista um filme completo em inglês sem legendas em português.",
     tier: "normal",
     cat: "Inteligência",
     xp: 450,
@@ -404,6 +459,7 @@ const MISSIONS = [
   {
     id: 45,
     name: "Aprenda os fundamentos de TypeScript",
+    desc: "Estude TypeScript até conseguir criar um projeto simples com tipos.",
     tier: "normal",
     cat: "Coding",
     xp: 500,
@@ -413,15 +469,19 @@ const MISSIONS = [
   {
     id: 46,
     name: "Faça 50 barras (Pull-ups) em um dia",
+    desc: "Complete 50 pull-ups em um único dia. Pode dividir em séries.",
     tier: "normal",
     cat: "Força",
     xp: 600,
     coins: 120,
     stat: "for",
+    target: 50,
+    unit: "pull-ups",
   },
   {
     id: 47,
     name: "Organize suas finanças em planilha",
+    desc: "Crie uma planilha completa de controle financeiro pessoal.",
     tier: "normal",
     cat: "Disciplina",
     xp: 400,
@@ -431,6 +491,7 @@ const MISSIONS = [
   {
     id: 48,
     name: "Faça um vídeo explicando um código",
+    desc: "Grave um vídeo explicando um código que você escreveu.",
     tier: "normal",
     cat: "Carisma",
     xp: 600,
@@ -440,15 +501,19 @@ const MISSIONS = [
   {
     id: 49,
     name: "Estude 2h por dia por 10 dias",
+    desc: "Estude focado por 2 horas durante 10 dias consecutivos.",
     tier: "normal",
     cat: "Disciplina",
     xp: 700,
     coins: 140,
     stat: "int",
+    target: 10,
+    unit: "dias",
   },
   {
     id: 50,
     name: "Participe de um meetup de tecnologia",
+    desc: "Compareça presencialmente ou online a um meetup de tecnologia.",
     tier: "normal",
     cat: "Carisma",
     xp: 500,
@@ -505,15 +570,19 @@ const MISSIONS = [
   {
     id: 24,
     name: "90 dias sem álcool",
+    desc: "Fique 90 dias completos sem consumir qualquer bebida alcoólica.",
     tier: "hard",
     cat: "Disciplina",
     xp: 2500,
     coins: 500,
     stat: "dis",
+    target: 90,
+    unit: "dias",
   },
   {
     id: 25,
     name: "Palestra pública em inglês",
+    desc: "Apresente uma palestra ou talk de pelo menos 15 minutos em inglês.",
     tier: "hard",
     cat: "Carisma",
     xp: 1800,
@@ -523,6 +592,7 @@ const MISSIONS = [
   {
     id: 51,
     name: "Complete uma Maratona de Código (48h)",
+    desc: "Participe e complete uma hackathon de 48 horas com um projeto funcional.",
     tier: "hard",
     cat: "Coding",
     xp: 2200,
@@ -532,6 +602,7 @@ const MISSIONS = [
   {
     id: 52,
     name: "Aprenda uma nova linguagem (Rust/Go)",
+    desc: "Aprenda Rust ou Go até conseguir criar um projeto completo.",
     tier: "hard",
     cat: "Inteligência",
     xp: 1900,
@@ -541,6 +612,7 @@ const MISSIONS = [
   {
     id: 53,
     name: "Consiga um freela internacional",
+    desc: "Feche um contrato freelance com um cliente internacional.",
     tier: "hard",
     cat: "Nômada",
     xp: 2800,
@@ -550,6 +622,7 @@ const MISSIONS = [
   {
     id: 54,
     name: "Corra 21km (Meia Maratona)",
+    desc: "Complete uma meia maratona de 21km sem parar.",
     tier: "hard",
     cat: "Força",
     xp: 2000,
@@ -559,15 +632,19 @@ const MISSIONS = [
   {
     id: 55,
     name: "Mantenha a rotina 05h por 30 dias",
+    desc: "Acorde às 5h por 30 dias consecutivos. O verdadeiro teste de disciplina.",
     tier: "hard",
     cat: "Disciplina",
     xp: 2500,
     coins: 500,
     stat: "dis",
+    target: 30,
+    unit: "dias",
   },
   {
     id: 56,
     name: "Crie um pacote NPM público",
+    desc: "Crie e publique um pacote útil no NPM com documentação.",
     tier: "hard",
     cat: "Coding",
     xp: 1700,
@@ -577,6 +654,7 @@ const MISSIONS = [
   {
     id: 57,
     name: "Fale 15min sobre Bell Hooks em inglês",
+    desc: "Discorra por 15 minutos sobre Bell Hooks em inglês fluido.",
     tier: "hard",
     cat: "Carisma",
     xp: 2000,
@@ -586,24 +664,31 @@ const MISSIONS = [
   {
     id: 58,
     name: "Resolva 50 problemas Difíceis (LeetCode)",
+    desc: "Domine 50 problemas de nível Hard no LeetCode.",
     tier: "hard",
     cat: "Coding",
     xp: 2500,
     coins: 500,
     stat: "int",
+    target: 50,
+    unit: "problemas",
   },
   {
     id: 59,
     name: "Elimine 5 maus hábitos por 30 dias",
+    desc: "Identifique e elimine 5 maus hábitos simultaneamente por 30 dias.",
     tier: "hard",
     cat: "Disciplina",
     xp: 2300,
     coins: 450,
     stat: "dis",
+    target: 30,
+    unit: "dias",
   },
   {
     id: 60,
     name: "L-Sit por 30 segundos",
+    desc: "Segure a posição L-Sit (L no solo) por 30 segundos sem quebrar.",
     tier: "hard",
     cat: "Força",
     xp: 1600,
@@ -613,6 +698,7 @@ const MISSIONS = [
   {
     id: 61,
     name: "Lance um App na Play/App Store",
+    desc: "Desenvolva e publique um app real nas lojas oficiais.",
     tier: "hard",
     cat: "Coding",
     xp: 2500,
@@ -622,15 +708,19 @@ const MISSIONS = [
   {
     id: 62,
     name: "Leia 5 livros de filosofia/sociologia",
+    desc: "Leia 5 livros de filosofia ou sociologia e faça resumos.",
     tier: "hard",
     cat: "Inteligência",
     xp: 1800,
     coins: 350,
     stat: "int",
+    target: 5,
+    unit: "livros",
   },
   {
     id: 63,
     name: "Workshop técnico para 10+ pessoas",
+    desc: "Ministre um workshop técnico para pelo menos 10 participantes.",
     tier: "hard",
     cat: "Carisma",
     xp: 2000,
@@ -640,6 +730,7 @@ const MISSIONS = [
   {
     id: 64,
     name: "Invista R$ 5k em ativos globais",
+    desc: "Invista R$ 5.000 em ações internacionais, ETFs ou cripto.",
     tier: "hard",
     cat: "Nômada",
     xp: 2200,
@@ -649,6 +740,7 @@ const MISSIONS = [
   {
     id: 65,
     name: "Aprenda a cozinhar 10 pratos de elite",
+    desc: "Domine 10 receitas de nível chef amador.",
     tier: "hard",
     cat: "Disciplina",
     xp: 1500,
@@ -660,6 +752,7 @@ const MISSIONS = [
   {
     id: 26,
     name: "Trabalhe remoto 1 mês no exterior",
+    desc: "Viva o lifestyle nômade: trabalhe remotamente por 1 mês fora do Brasil.",
     tier: "epic",
     cat: "Nômada",
     xp: 5000,
@@ -670,6 +763,7 @@ const MISSIONS = [
   {
     id: 27,
     name: "Emprego fullstack em empresa int.",
+    desc: "Seja contratado como dev fullstack por uma empresa internacional.",
     tier: "epic",
     cat: "Coding",
     xp: 8000,
@@ -680,6 +774,7 @@ const MISSIONS = [
   {
     id: 28,
     name: "Planche push-up",
+    desc: "Complete 1 repetição de push-up na planche (posição avançada de calistenia).",
     tier: "epic",
     cat: "Força",
     xp: 6000,
@@ -690,16 +785,20 @@ const MISSIONS = [
   {
     id: 29,
     name: "Viaje para 5 países em 1 ano",
+    desc: "Conheça 5 países diferentes em um período de 12 meses.",
     tier: "epic",
     cat: "Nômada",
     xp: 7000,
     coins: 1400,
     stat: "cha",
     req: 20,
+    target: 5,
+    unit: "países",
   },
   {
     id: 66,
     name: "Handstand push-up (3 reps)",
+    desc: "Complete 3 repetições de handstand push-up (parado nas mãos).",
     tier: "epic",
     cat: "Força",
     xp: 5500,
@@ -710,6 +809,7 @@ const MISSIONS = [
   {
     id: 67,
     name: "Crie um blog técnico com 10k+ visitas",
+    desc: "Crie um blog técnico e alcance 10.000 visitas orgânicas.",
     tier: "epic",
     cat: "Carisma",
     xp: 6500,
@@ -720,6 +820,7 @@ const MISSIONS = [
   {
     id: 68,
     name: "Aprenda Japonês básico (N5)",
+    desc: "Passe na prova JLPT N5 de proficiência em japonês.",
     tier: "epic",
     cat: "Inteligência",
     xp: 7000,
@@ -730,6 +831,7 @@ const MISSIONS = [
   {
     id: 69,
     name: "Vire contribuidor core de um projeto OS",
+    desc: "Torne-se um mantenedor/contribuidor core de um projeto open-source conhecido.",
     tier: "epic",
     cat: "Coding",
     xp: 7500,
@@ -740,16 +842,20 @@ const MISSIONS = [
   {
     id: 70,
     name: "Fique 6 meses sem errar a rotina 05h",
+    desc: "Acorde às 5h por 6 meses consecutivos sem falhar um dia.",
     tier: "epic",
     cat: "Disciplina",
     xp: 8000,
     coins: 1600,
     stat: "dis",
     req: 30,
+    target: 180,
+    unit: "dias",
   },
   {
     id: 71,
     name: "Primeiro faturamento de USD 1k com SaaS",
+    desc: "Fature USD 1.000 com um produto SaaS que você criou.",
     tier: "epic",
     cat: "Nômada",
     xp: 9000,
@@ -760,6 +866,7 @@ const MISSIONS = [
   {
     id: 72,
     name: "Mestrado ou Especialização Internacional",
+    desc: "Inicie ou complete um mestrado/especialização reconhecido internacionalmente.",
     tier: "epic",
     cat: "Inteligência",
     xp: 8500,
@@ -770,6 +877,7 @@ const MISSIONS = [
   {
     id: 73,
     name: "Corra uma Ultra Maratona (50km)",
+    desc: "Complete uma ultramaratona de 50km.",
     tier: "epic",
     cat: "Força",
     xp: 10000,
@@ -802,6 +910,7 @@ const MISSIONS = [
   {
     id: 30,
     name: "Senior Engineer tier-1",
+    desc: "Alcance o cargo de Senior Engineer em uma empresa tier-1 (Google, Meta, Amazon, etc).",
     tier: "legendary",
     cat: "Coding",
     xp: 20000,
@@ -812,16 +921,20 @@ const MISSIONS = [
   {
     id: 31,
     name: "Nômade digital por 1 ano",
+    desc: "Viva como nômade digital por 12 meses consecutivos, trabalhando de diferentes países.",
     tier: "legendary",
     cat: "Nômada",
     xp: 30000,
     coins: 8000,
     stat: "cha",
     req: 35,
+    target: 12,
+    unit: "meses",
   },
   {
     id: 32,
     name: "Human flag: 3 segundos",
+    desc: "Segure a human flag (bandeira humana) por 3 segundos completos.",
     tier: "legendary",
     cat: "Força",
     xp: 15000,
@@ -832,6 +945,7 @@ const MISSIONS = [
   {
     id: 33,
     name: "Empresa USD 10k/mês",
+    desc: "Fature USD 10.000 por mês com sua própria empresa/SaaS.",
     tier: "legendary",
     cat: "Nômada",
     xp: 50000,
@@ -842,6 +956,7 @@ const MISSIONS = [
   {
     id: 76,
     name: "One-arm Pull-up",
+    desc: "Complete 1 pull-up com um braço só. Dominação total da força.",
     tier: "legendary",
     cat: "Força",
     xp: 18000,
@@ -852,6 +967,7 @@ const MISSIONS = [
   {
     id: 77,
     name: "Fundador de uma Startup lucrativa",
+    desc: "Funde uma startup que gere lucro mensal consistente.",
     tier: "legendary",
     cat: "Nômada",
     xp: 45000,
@@ -862,6 +978,7 @@ const MISSIONS = [
   {
     id: 78,
     name: "Escreva e publique um livro físico",
+    desc: "Escreva e publique um livro de verdade, com ISBN e tudo.",
     tier: "legendary",
     cat: "Inteligência",
     xp: 25000,
@@ -872,16 +989,20 @@ const MISSIONS = [
   {
     id: 79,
     name: "Domine 4 idiomas fluentemente",
+    desc: "Seja fluente em 4 idiomas diferentes (nível C1 ou superior).",
     tier: "legendary",
     cat: "Inteligência",
     xp: 35000,
     coins: 8500,
     stat: "int",
     req: 60,
+    target: 4,
+    unit: "idiomas",
   },
   {
     id: 80,
     name: "Ironman Completo",
+    desc: "Complete um Ironman: 3.8km natação, 180km bike, 42km corrida.",
     tier: "legendary",
     cat: "Força",
     xp: 40000,
@@ -892,6 +1013,7 @@ const MISSIONS = [
   {
     id: 81,
     name: "Staff Engineer em Big Tech",
+    desc: "Alcance o nível Staff+ Engineer em uma big tech (L6+ ou equivalente).",
     tier: "legendary",
     cat: "Coding",
     xp: 30000,
@@ -902,6 +1024,7 @@ const MISSIONS = [
   {
     id: 82,
     name: "Compre um imóvel apenas com USD de SaaS",
+    desc: "Pague um imóvel inteiro usando renda de SaaS/produtos digitais.",
     tier: "legendary",
     cat: "Nômada",
     xp: 60000,
@@ -912,6 +1035,7 @@ const MISSIONS = [
   {
     id: 83,
     name: "Poder de influência: 100k+ seguidores",
+    desc: "Construa uma audiência de 100.000+ seguidores em uma plataforma.",
     tier: "legendary",
     cat: "Carisma",
     xp: 30000,
@@ -2021,6 +2145,8 @@ function defaultState() {
     stats: { for: 0, int: 0, dis: 0, cha: 0 },
     completedDaily: [],
     completedMissions: [],
+    activeMissions: [], // missões aceitas (máx 3)
+    missionProgress: {}, // { missionId: currentProgress }
     gymExercises: JSON.parse(JSON.stringify(GYMS_DEFAULT)),
     gymDone: [],
     treinos100: [],
@@ -2030,7 +2156,7 @@ function defaultState() {
     customHabits: [],
     customMissions: [],
     customRoleplays: [],
-    calisthenics: {}, // { progId: true }
+    calisthenics: {},
     lastDate: new Date().toDateString(),
     alterEgoName: "KAI",
     alterEgoTone: "direto e brutal",
@@ -2072,6 +2198,8 @@ let S = (() => {
     if (!r.customMissions) r.customMissions = [];
     if (!r.customRoleplays) r.customRoleplays = [];
     if (!r.calisthenics) r.calisthenics = {};
+    if (!r.activeMissions) r.activeMissions = [];
+    if (!r.missionProgress) r.missionProgress = {};
     return r;
   } catch (e) {
     return defaultState();
@@ -2216,9 +2344,6 @@ function renderScreen(n) {
     case "treinos100":
       renderTreinos100();
       break;
-    case "roleplays":
-      renderRoleplays();
-      break;
     case "perfil":
       renderPerfil();
       break;
@@ -2300,6 +2425,47 @@ function updateAllUI() {
 }
 
 function renderHome() {
+  // Missões Ativas na Home
+  const amSection = document.getElementById("active-missions-section");
+  const amList = document.getElementById("active-missions-list");
+  const amCount = document.getElementById("active-missions-count");
+
+  if (amSection && amList && amCount) {
+    if (S.activeMissions.length > 0) {
+      amSection.style.display = "block";
+      amCount.textContent = `${S.activeMissions.length}/3 em andamento`;
+
+      const allMissions = [...MISSIONS, ...S.customMissions];
+      const tc = { easy: "#10B981", normal: "#3B82F6", hard: "#8B5CF6", epic: "#F59E0B", legendary: "#EF4444" };
+
+      amList.innerHTML = S.activeMissions.slice(0, 3).map(id => {
+        const m = allMissions.find(x => x.id == id);
+        if (!m) return '';
+        const tierColor = tc[m.tier] || "#fff";
+        const progress = S.missionProgress[id] || 0;
+        const hasProgress = m.target && m.target > 1;
+        const percent = hasProgress ? Math.min(100, (progress / m.target) * 100) : 0;
+
+        return `
+          <div class="active-mission-card" onclick="goTo('missoes')">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+              <div style="font-size: 13px; font-weight: 600; flex: 1; padding-right: 8px;">${m.name}</div>
+              <div style="font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 12px; background: ${tierColor}22; color: ${tierColor}; font-family: 'JetBrains Mono', monospace;">${m.tier.toUpperCase()}</div>
+            </div>
+            ${hasProgress ? `
+              <div class="prog-bar" style="height: 6px; margin-bottom: 4px;">
+                <div class="prog-fill xp" style="width: ${percent}%"></div>
+              </div>
+              <div style="font-size: 10px; color: var(--muted); text-align: right; font-family: 'JetBrains Mono', monospace;">${progress}/${m.target} ${m.unit}</div>
+            ` : `<div style="font-size: 11px; color: var(--muted);">Toque para gerenciar →</div>`}
+          </div>
+        `;
+      }).join("");
+    } else {
+      amSection.style.display = "none";
+    }
+  }
+
   const tl = document.getElementById("h-task-list");
   if (tl)
     tl.innerHTML = DAILY_TASKS.slice(0, 3)
@@ -2395,29 +2561,87 @@ function renderMissoes() {
   };
   const list = document.getElementById("mission-list");
   if (!list) return;
+
   const allMissions = [...MISSIONS, ...S.customMissions];
-  const fl =
-    mFilter === "all" ? allMissions : allMissions.filter((m) => m.tier === mFilter);
   const curLvl = lvl();
-  list.innerHTML = fl
-    .map((m) => {
-      const done = S.completedMissions.includes(m.id);
-      const locked = m.req && curLvl < m.req;
-      const isCustom = typeof m.id === 'string' && m.id.startsWith('custom_');
-      return `<div class="mission-row ${done ? "done" : ""}" style="position:relative" onclick="${locked ? 'toast(\"🔒 Nível ' + m.req + ' necessário\",\"fail\")' : done ? 'toast(\"Missão já completa!\",\"ok\")' : "openMission('" + m.id + "')"}">
-            <div class="tier-dot" style="background:${tc[m.tier] || "#fff"}"></div>
-            <div class="mission-info">
-              <div class="mission-name">${done ? "✓ " : locked ? "🔒 " : ""}${m.name}</div>
-              <div class="mission-cat">${m.cat}${m.req ? " · LVL " + m.req + " REQ" : ""}</div>
-            </div>
-            <div>
-              <div class="mission-xp">+${m.xp.toLocaleString()}</div>
-              <div class="mission-coins">◈${m.coins}</div>
-            </div>
-            ${isCustom ? `<button onclick="event.stopPropagation();deleteMission('${m.id}')" style="position:absolute; top:10px; right:10px; background:none; border:none; color:var(--red); cursor:pointer; font-size:18px">×</button>` : ''}
-          </div>`;
-    })
-    .join("");
+
+  // Filtra missões baseado no filtro atual
+  const fl = mFilter === "all" ? allMissions : allMissions.filter((m) => m.tier === mFilter);
+
+  // Separa missões ativas, disponíveis e completadas
+  const activeMissions = fl.filter(m => S.activeMissions.includes(m.id) && !S.completedMissions.includes(m.id));
+  const completedMissions = fl.filter(m => S.completedMissions.includes(m.id));
+  const availableMissions = fl.filter(m => !S.activeMissions.includes(m.id) && !S.completedMissions.includes(m.id));
+
+  let html = '';
+
+  // Seção: Missões Ativas
+  if (activeMissions.length > 0) {
+    html += `<div class="mission-section-title">⚡ ATIVAS (${activeMissions.length}/3)</div>`;
+    html += activeMissions.map(m => renderMissionCard(m, tc, curLvl, 'active')).join('');
+  }
+
+  // Seção: Missões Disponíveis
+  if (availableMissions.length > 0) {
+    html += `<div class="mission-section-title">📋 DISPONÍVEIS</div>`;
+    html += availableMissions.map(m => renderMissionCard(m, tc, curLvl, 'available')).join('');
+  }
+
+  // Seção: Completadas (mostra apenas se não houver filtro ou se quisermos ver tudo)
+  if (completedMissions.length > 0 && mFilter === 'all') {
+    html += `<div class="mission-section-title">✓ COMPLETADAS (${completedMissions.length})</div>`;
+    html += completedMissions.map(m => renderMissionCard(m, tc, curLvl, 'completed')).join('');
+  }
+
+  list.innerHTML = html;
+}
+
+function renderMissionCard(m, tc, curLvl, status) {
+  const done = status === 'completed';
+  const active = status === 'active';
+  const locked = m.req && curLvl < m.req;
+  const isCustom = typeof m.id === 'string' && m.id.startsWith('custom_');
+
+  // Calcula progresso se tiver target
+  let progressHtml = '';
+  if (m.target && (active || done)) {
+    const current = S.missionProgress[m.id] || 0;
+    const percent = Math.min(100, (current / m.target) * 100);
+    progressHtml = `
+      <div class="mission-progress-bar">
+        <div class="mission-progress-fill" style="width: ${percent}%"></div>
+      </div>
+      <div class="mission-progress-text">${current}/${m.target} ${m.unit}</div>
+    `;
+  }
+
+  const tierColor = tc[m.tier] || "#fff";
+  const opacity = done ? 'opacity: 0.6;' : '';
+  const borderColor = active ? `border-color: ${tierColor}44;` : '';
+  const glow = active ? `box-shadow: 0 0 20px ${tierColor}22;` : '';
+
+  return `<div class="mission-card ${active ? 'active' : ''} ${done ? 'done' : ''}" style="${opacity} ${borderColor} ${glow}" onclick="${locked ? `toast('🔒 Nível ${m.req} necessário','fail')` : done ? `toast('Missão já completa!','ok')` : active ? `openActiveMission('${m.id}')` : `openMission('${m.id}')`}">
+    <div class="mission-header">
+      <div class="mission-tier-badge" style="background: ${tierColor}22; color: ${tierColor}">
+        ${m.tier.toUpperCase()}
+      </div>
+      <div class="mission-status-icon">${done ? '✓' : active ? '⚡' : locked ? '🔒' : ''}</div>
+    </div>
+    <div class="mission-body">
+      <div class="mission-name">${m.name}</div>
+      <div class="mission-cat">${m.cat}${m.req ? ` · LVL ${m.req}` : ''}</div>
+      ${m.desc ? `<div class="mission-desc">${m.desc}</div>` : ''}
+      ${progressHtml}
+    </div>
+    <div class="mission-footer">
+      <div class="mission-rewards">
+        <span class="mission-xp-badge">+${m.xp.toLocaleString()} XP</span>
+        <span class="mission-coin-badge">◈${m.coins}</span>
+      </div>
+      <div class="mission-stat">${m.stat.toUpperCase()}</div>
+    </div>
+    ${isCustom ? `<button onclick="event.stopPropagation();deleteMission('${m.id}')" class="mission-delete-btn">×</button>` : ''}
+  </div>`;
 }
 
 function renderAcademia() {
@@ -2604,35 +2828,157 @@ function openMission(id) {
     epic: "#F59E0B",
     legendary: "#EF4444",
   };
+
+  const canAccept = S.activeMissions.length < 3;
+  const acceptBtn = canAccept
+    ? `<button class="btn btn-purple" onclick="acceptMission('${m.id}')">⚡ ACEITAR MISSÃO</button>
+       <div style="text-align:center; font-size:11px; color:var(--muted); margin-top:8px;">${S.activeMissions.length}/3 ativas</div>`
+    : `<button class="btn btn-outline" disabled style="opacity:0.5">⚡ LIMITE ATINGIDO (3/3)</button>
+       <div style="text-align:center; font-size:11px; color:var(--red); margin-top:8px;">Complete ou abandone uma missão ativa</div>`;
+
   showModal(`
-          <button class="modal-close" onclick="closeModal()">✕</button>
-          <div class="modal-title">◎ COMPLETAR MISSÃO</div>
-          <div style="font-size:16px;font-weight:700;margin-bottom:8px">${m.name}</div>
-          <div style="display:flex;gap:8px;margin-bottom:16px;">
-            <span style="background:${tc[m.tier] || 'var(--purple)'}22;color:${tc[m.tier] || 'var(--purple)'};padding:3px 10px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700">${m.tier.toUpperCase()}</span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">${m.cat}</span>
-          </div>
-          <div style="background:var(--card2);border-radius:10px;padding:14px;margin-bottom:16px;">
-            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="color:var(--muted)">XP</span><span style="font-family:'Orbitron',monospace;font-weight:700;color:var(--blue)">+${m.xp.toLocaleString()}</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="color:var(--muted)">Coins</span><span style="font-family:'Orbitron',monospace;font-weight:700;color:var(--gold)">+${m.coins}</span></div>
-            <div style="display:flex;justify-content:space-between;"><span style="color:var(--muted)">Stat</span><span style="font-family:'Orbitron',monospace;font-size:12px;color:var(--purple)">+${Math.ceil(m.xp / 10)} ${m.stat.toUpperCase()}</span></div>
-          </div>
-          <button class="btn btn-purple" onclick="confirmMission('${m.id}')">✓ CONFIRMAR CONCLUSÃO</button>
-        `);
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" style="color:${tc[m.tier]}">◎ ${m.tier.toUpperCase()} MISSION</div>
+    <div style="font-size:18px;font-weight:700;margin-bottom:8px">${m.name}</div>
+    <div style="display:flex;gap:8px;margin-bottom:16px;align-items:center;">
+      <span style="background:${tc[m.tier]}22;color:${tc[m.tier]};padding:4px 12px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700">${m.tier.toUpperCase()}</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">${m.cat}</span>
+    </div>
+    ${m.desc ? `<div style="background:var(--card2);border-radius:10px;padding:14px;margin-bottom:16px;font-size:13px;line-height:1.6;color:var(--text)">${m.desc}</div>` : ''}
+    <div style="background:var(--card2);border-radius:10px;padding:16px;margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+        <span style="color:var(--muted)">Recompensa XP</span>
+        <span style="font-family:'Orbitron',monospace;font-weight:700;color:var(--blue)">+${m.xp.toLocaleString()}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+        <span style="color:var(--muted)">Coins</span>
+        <span style="font-family:'Orbitron',monospace;font-weight:700;color:var(--gold)">+${m.coins}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;">
+        <span style="color:var(--muted)">Stat Bonus</span>
+        <span style="font-family:'Orbitron',monospace;font-size:12px;color:var(--purple)">+${Math.ceil(m.xp / 10)} ${m.stat.toUpperCase()}</span>
+      </div>
+    </div>
+    ${acceptBtn}
+  `);
+}
+
+function acceptMission(id) {
+  if (S.activeMissions.length >= 3) {
+    toast("⚠ Limite de 3 missões ativas atingido", "fail");
+    return;
+  }
+  S.activeMissions.push(id);
+  S.missionProgress[id] = 0;
+  save();
+  closeModal();
+  toast("⚡ Missão aceita! Foque e complete!", "ok");
+  renderMissoes();
+}
+
+function openActiveMission(id) {
+  const allMissions = [...MISSIONS, ...S.customMissions];
+  const m = allMissions.find((x) => x.id === id);
+  if (!m) return;
+  const tc = {
+    easy: "#10B981",
+    normal: "#3B82F6",
+    hard: "#8B5CF6",
+    epic: "#F59E0B",
+    legendary: "#EF4444",
+  };
+
+  const currentProgress = S.missionProgress[id] || 0;
+  const hasTarget = m.target && m.target > 1;
+
+  // Botões de ação baseados no tipo de missão
+  let actionButtons = '';
+  if (hasTarget) {
+    actionButtons = `
+      <div style="display:flex;gap:10px;margin-bottom:16px;">
+        <button class="btn" style="flex:1;background:var(--card2);border:1px solid var(--border);" onclick="updateMissionProgress('${m.id}', -1)">−</button>
+        <button class="btn btn-purple" style="flex:3" onclick="updateMissionProgress('${m.id}', 1)">✓ REGISTRAR PROGRESSO</button>
+      </div>
+    `;
+  }
+
+  showModal(`
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" style="color:${tc[m.tier]}">⚡ MISSÃO ATIVA</div>
+    <div style="font-size:18px;font-weight:700;margin-bottom:8px">${m.name}</div>
+    <div style="display:flex;gap:8px;margin-bottom:16px;">
+      <span style="background:${tc[m.tier]}22;color:${tc[m.tier]};padding:4px 12px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700">${m.tier.toUpperCase()}</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">${m.cat}</span>
+    </div>
+    ${m.desc ? `<div style="background:var(--card2);border-radius:10px;padding:14px;margin-bottom:16px;font-size:13px;line-height:1.6;">${m.desc}</div>` : ''}
+    ${hasTarget ? `
+    <div style="background:var(--card2);border-radius:10px;padding:16px;margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+        <span style="color:var(--muted)">Progresso</span>
+        <span style="font-family:'Orbitron',monospace;font-weight:700;color:var(--purple)">${currentProgress}/${m.target} ${m.unit}</span>
+      </div>
+      <div class="prog-bar" style="height:10px;">
+        <div class="prog-fill xp" style="width: ${Math.min(100, (currentProgress / m.target) * 100)}%"></div>
+      </div>
+    </div>` : ''}
+    ${actionButtons}
+    <button class="btn btn-purple" onclick="confirmMission('${m.id}')">✓ COMPLETAR MISSÃO</button>
+    <button class="btn btn-outline" style="margin-top:10px;background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red);" onclick="abandonMission('${m.id}')">✕ ABANDONAR (PERDE 50 COINS)</button>
+  `);
+}
+
+function updateMissionProgress(id, delta) {
+  const allMissions = [...MISSIONS, ...S.customMissions];
+  const m = allMissions.find((x) => x.id === id);
+  if (!m || !m.target) return;
+
+  let current = S.missionProgress[id] || 0;
+  current = Math.max(0, Math.min(m.target, current + delta));
+  S.missionProgress[id] = current;
+  save();
+
+  // Reabre o modal para atualizar
+  openActiveMission(id);
+  renderMissoes();
+}
+
+function abandonMission(id) {
+  if (!confirm("Tem certeza? Você perderá 50 coins e toda a progresso desta missão.")) return;
+
+  S.activeMissions = S.activeMissions.filter(mid => mid !== id);
+  delete S.missionProgress[id];
+  S.coins = Math.max(0, S.coins - 50);
+  save();
+  closeModal();
+  toast("☠ Missão abandonada. -50 coins", "fail");
+  renderMissoes();
 }
 
 function confirmMission(id) {
   const allMissions = [...MISSIONS, ...S.customMissions];
   const m = allMissions.find((x) => x.id === id);
   if (!m) return;
+
+  // Verifica se tem target e se completou o progresso
+  if (m.target && m.target > 1) {
+    const current = S.missionProgress[id] || 0;
+    if (current < m.target) {
+      toast(`⚠ Progresso insuficiente! ${current}/${m.target} ${m.unit}`, "fail");
+      return;
+    }
+  }
+
   S.completedMissions.push(id);
+  S.activeMissions = S.activeMissions.filter(mid => mid !== id);
+  delete S.missionProgress[id];
   S.coins += m.coins;
   addXP(m.xp, m.stat);
+  save();
   closeModal();
   toast(
     "⚡ MISSÃO COMPLETA — +" + m.xp + " XP +" + m.coins + " COINS",
     "ok",
-    3000,
+    4000,
   );
   if (window.navigator.vibrate) window.navigator.vibrate(100);
 }
