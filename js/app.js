@@ -3426,7 +3426,7 @@ const KAI_DB = {
         "exercício",
         "exercicio",
       ],
-      resposta: `**💪 PROTOCOLO DE TREINO — CONSTRUÇÃO DO TEMPLO**\n\n**PRINCÍPIOS BÁSICOS:**\n→ Consistência > Intensidade\n→ Progressão gradual (aumente 2.5kg por semana)\n→ Técnica > Carga (lesão é retrocesso)\n\n**DIVISÃO SUGERIDA (4x/semana):**\n\n**Dia 1 - PUSH (Peito, Ombro, Tríceps)**\nSupino, Desenvolvimento, Tríceps\n\n**Dia 2 - PULL (Costas, Bíceps)**\nPulley, Remada, Rosca\n\n**Dia 3 - PERNAS**\nLeg Press, Cadeira Extensora, Panturrilha\n\n**Dia 4 - FULL BODY**\nAgachamento, Barra, Terra\n\n**DESCANSO:** 48h entre grupos musculares, 1 dia de descanso total por semana\n\n**PROGRESSÃO 100 TREINOS:**\nCada treino registrado = +50 XP e +10 coins\nComplete 100 treinos = Título LENDÁRIO\n\n**Qual seu treino hoje? Registre no app!**`,
+      resposta: `**💪 PROTOCOLO DE TREINO — CONSTRUÇÃO DO TEMPLO**\n\n**PRINCÍPIOS BÁSICOS:**\n→ Consistência > Intensidade\n→ Progressão gradual\n→ Técnica > Carga\n\n**TREINO INTEGRADO (ACADEMIA + HANDSTAND):**\n\n**1. Desenvolvimento Militar:** 4x 8-12 (Encolha ombros no topo)\n**2. Supino Inclinado:** 3x 10 (Estabilidade vertical)\n**3. Tríceps Testa/Corda:** 3x 12 (Trava de braço)\n**4. Elevação Frontal (Anilha):** 3x 12 (Motor do Handstand)\n**5. Pike Push-up/Hold:** 3x Máx (Força de empurrar)\n**6. Crow Pose:** 4 séries (Equilíbrio e Punhos)\n**7. Hollow Body Rock:** 3x 1 min (Core/Alinhamento)\n**8. Chest-to-Wall Handstand:** Prática de alinhamento na parede\n\n**DESCANSO:** 48h entre sessões. Foco total na técnica e controle corporal.\n\n**PROGRESSÃO 100 TREINOS:**\nCada treino registrado = +50 XP e +10 coins\nComplete 100 treinos = Título LENDÁRIO\n\n**Qual seu treino hoje? Registre no app!**`,
     },
 
     {
