@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kaisui-v2';
+const CACHE_NAME = 'kaisui-v3';
 const ASSETS = [
   './',
   './index.html',

@@ -2384,7 +2384,10 @@ function renderHome() {
         return `
           <div class="active-mission-card" onclick="goTo('missoes')">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-              <div style="font-size: 13px; font-weight: 600; flex: 1; padding-right: 8px;">${m.name}</div>
+              <div style="display: flex; align-items: flex-start; gap: 8px; flex: 1; padding-right: 8px;">
+                <div class="mission-check" style="width: 18px; height: 18px; font-size: 10px; margin-right: 0;"></div>
+                <div style="font-size: 13px; font-weight: 600;">${m.name}</div>
+              </div>
               <div style="font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 12px; background: ${tierColor}22; color: ${tierColor}; font-family: 'JetBrains Mono', monospace;">${m.tier.toUpperCase()}</div>
             </div>
             ${hasProgress ? `
@@ -2562,11 +2565,14 @@ function renderMissionCard(m, tc, curLvl, status) {
       </div>
       <div class="mission-status-icon">${done ? '✓' : active ? '⚡' : locked ? '🔒' : ''}</div>
     </div>
-    <div class="mission-body">
-      <div class="mission-name">${m.name}</div>
+    <div class="mission-body" style="display: flex; align-items: flex-start;">
+      <div class="mission-check">${done ? '✓' : ''}</div>
+      <div style="flex: 1;">
+        <div class="mission-name">${m.name}</div>
       <div class="mission-cat">${m.cat}${m.req ? ` · LVL ${m.req}` : ''}</div>
       ${m.desc ? `<div class="mission-desc">${m.desc}</div>` : ''}
-      ${progressHtml}
+        ${progressHtml}
+      </div>
     </div>
     <div class="mission-footer">
       <div class="mission-rewards">
