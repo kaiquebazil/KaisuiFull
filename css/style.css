@@ -1400,3 +1400,8 @@
   text-decoration: line-through;
   color: var(--muted);
 }
+/* Remove o botão de edição caso ainda exista em uma versão antiga do HTML em cache. */
+#screen-routine .routine-toolbar .routine-edit-button,
+#screen-routine .routine-toolbar button[onclick*="toggleRoutineEditor"] {
+  display: none !important;
+}

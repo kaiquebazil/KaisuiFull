@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>KAISUI - Evolution</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>KaiSuite - Gestão Pessoal</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="css/stysle.css">
+  <link rel="stylesheet" href="css/style.css">
   <meta name="theme-color" content="#7c3aed">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -129,12 +132,17 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
       padding: 12px;
       background: rgba(239,68,68,0.1);
       border-radius: 10px;
       margin-bottom: 8px;
       cursor: pointer;
     }
+    .bad-row > span:first-child { flex:1 1 140px; min-width:0; line-height:1.35; }
+    .bad-row > span:last-child { display:flex; flex:0 0 auto; gap:6px; }
+    .bad-row .date-step { width:auto; min-width:64px; padding:8px 10px; border:1px solid rgba(255,255,255,.12); border-radius:8px; font-size:12px; line-height:1.2; white-space:nowrap; }
     
     .nav {
       position: fixed;
@@ -266,141 +274,244 @@
       gap: 8px;
       margin-bottom: 8px;
     }
+    .dashboard-header,.module-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .dashboard-header h1 { font-family:'Orbitron',sans-serif; font-size:24px; letter-spacing:1px; }
+    .brand-small { color:var(--muted); font-size:9px; font-weight:700; letter-spacing:1.4px; margin:0; }
+    .dashboard-date,.module-heading p:not(.brand-small) { color:var(--muted); font-size:12px; margin-top:4px; }
+    .view-badge { background:rgba(16,185,129,.14); color:#34d399; border:1px solid rgba(16,185,129,.25); border-radius:999px; padding:7px 12px; width:auto; }
+    .dashboard-header { padding:16px; border-radius:16px; background:#18304a; margin-bottom:14px; }
+    .dashboard-header .brand-small,.dashboard-date,.module-heading p:not(.brand-small) { color:#cbd5e1; }
+    .module-heading { padding:16px; border-radius:16px; margin-bottom:14px; }
+    #screen-work .module-heading { background:#123b32; }
+    #screen-training .module-heading { background:#34264a; }
+    #screen-routine .module-heading { background:#49351c; }
+    #screen-finances .module-heading { background:#402630; }
+    .dashboard-xp { background:#18304a; border:0; border-radius:16px; }
+    .dashboard-habits-summary { background:#34264a; border:0; border-radius:16px; }
+    .dashboard-tasks { background:#123b32; border:0; border-radius:16px; }
+    .dashboard-avoid { background:#402630; border:0; border-radius:16px; }
+    .dashboard-schedule { background:#49351c; border:0; border-radius:16px; }
+    .summary-grid > div { padding:12px; border-radius:12px; background:#18304a; }
+    .summary-grid > div small { color:rgba(255,255,255,.78); }
+    .summary-grid > div:nth-child(4n+2) { background:#123b32; }
+    .summary-grid > div:nth-child(4n+3) { background:#34264a; }
+    .summary-grid > div:nth-child(4n+4) { background:#49351c; }
+    .summary-grid strong { overflow-wrap:anywhere; }
+    .dashboard-xp,.dashboard-habits-summary,.dashboard-tasks,.dashboard-avoid,.dashboard-schedule,.module-heading { transition:filter .18s ease,transform .18s ease; }
+    .dashboard-xp:hover,.dashboard-habits-summary:hover,.dashboard-tasks:hover,.dashboard-avoid:hover,.dashboard-schedule:hover,.module-heading:hover { filter:brightness(1.07); }
+    .task-row[role="button"]:focus-visible,.routine-item:focus-visible,.date-step:focus-visible,.btn:focus-visible,.nav-btn:focus-visible { outline:2px solid #c4b5fd; outline-offset:2px; }
+    .date-toolbar { flex-wrap:wrap; }
+    .date-toolbar input { min-height:42px; }
+    .routine-toolbar { display:grid; grid-template-columns:minmax(0,1fr); gap:12px; padding:14px; border:1px solid rgba(124,58,237,.22); border-radius:18px; background:linear-gradient(145deg,#171824,#11121b); box-shadow:0 8px 24px rgba(0,0,0,.18); }
+    .routine-date-controls { display:grid; grid-template-columns:42px minmax(0,1fr) 42px; align-items:center; gap:8px; min-width:0; }
+    .routine-date-controls .date-step { display:grid; place-items:center; width:42px; height:46px; padding:0; border:1px solid rgba(167,139,250,.3); border-radius:12px; background:linear-gradient(160deg,#26283a,#1a1b28); color:#e2e8f0; font-size:24px; transition:background .18s ease,transform .18s ease; }
+    .routine-date-controls .date-step:hover { background:#302a49; transform:translateY(-1px); }
+    .routine-date-display { position:relative; display:flex; flex-direction:column; justify-content:center; min-width:0; min-height:58px; padding:8px 42px 8px 13px; overflow:hidden; border:1px solid rgba(167,139,250,.35); border-radius:13px; background:linear-gradient(140deg,rgba(124,58,237,.13),rgba(24,48,74,.45)); cursor:pointer; }
+    .routine-date-display span { color:#a5b4fc; font-size:9px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; }
+    .routine-date-display strong { margin-top:2px; color:#f8fafc; font-size:14px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .routine-date-display .routine-calendar-icon { position:absolute; right:13px; top:50%; transform:translateY(-50%); color:#c4b5fd; font-size:18px; }
+    .routine-date-display input { position:absolute; inset:0; z-index:2; width:100%; height:100%; opacity:0; cursor:pointer; }
+    .routine-date-display:focus-within { outline:2px solid #c4b5fd; outline-offset:2px; }
+    .bill-row { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:10px; padding:9px 10px; margin:7px 0; border-radius:12px; background:#20202c; }
+    .bill-row.is-paid { background:rgba(16,185,129,.12); }
+    .bill-info { display:grid; grid-template-columns:20px minmax(0,1fr); align-items:center; gap:8px; min-width:0; cursor:pointer; }
+    .bill-info input { width:18px; height:18px; accent-color:var(--green); }
+    .bill-copy { display:block; min-width:0; }
+    .bill-copy strong { display:block; overflow-wrap:anywhere; font-size:13px; }
+    .bill-copy small { display:block; margin-top:2px; color:var(--muted2); font-size:11px; line-height:1.3; overflow-wrap:anywhere; }
+    .bill-actions { display:flex; gap:6px; }
+    .bill-actions button { display:grid; place-items:center; width:40px; height:40px; padding:0; margin:0; border:0; border-radius:10px; font-size:17px; cursor:pointer; }
+    .bill-edit { background:#252b39; color:#dbeafe; }
+    .bill-remove { background:rgba(239,68,68,.16); color:#f87171; }
+    .bill-actions button:focus-visible { outline:2px solid #c4b5fd; outline-offset:2px; }
+    .summary-section { border-top:1px solid var(--border); padding-top:14px; margin:8px 0 16px; }
+    .summary-section h2 { font-size:18px; margin-bottom:10px; }
+    .summary-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .summary-grid small { color:var(--muted); display:block; font-size:11px; }
+    .summary-grid strong { display:block; margin-top:5px; font-size:17px; }
+    .good-value { color:var(--green); }
+    .date-toolbar { display:flex; align-items:center; gap:8px; }
+    .date-toolbar input { flex:1; min-width:0; padding:9px; color:var(--text); background:var(--card2); border:1px solid var(--border); border-radius:8px; }
+    .date-step { width:38px; padding:8px; background:var(--card2); color:var(--text); font-size:20px; margin:0; }
+    .form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    .full-field { grid-column:1/-1; }
+    .v360-field { display:block; margin:5px 0; color:var(--muted); font-size:11px; }
+    .v360-field input,.v360-field select,.v360-field textarea { display:block; width:100%; margin-top:4px; padding:10px; color:var(--text); background:var(--card2); border:1px solid var(--border); border-radius:8px; font:inherit; }
+    .v360-field textarea { min-height:60px; resize:vertical; }
+    .daily-chart { display:flex; align-items:flex-end; gap:4px; min-height:140px; overflow-x:auto; padding-top:14px; }
+    .chart-col { flex:1; min-width:24px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:4px; height:130px; font-size:9px; color:var(--muted); }
+    .chart-col i { display:block; width:100%; min-height:4px; background:linear-gradient(180deg,var(--green),#087f5b); border-radius:5px 5px 0 0; }
+    .chart-bar { width:100%; min-height:2px; background:linear-gradient(180deg,var(--green),#087f5b); border-radius:5px 5px 0 0; }
+    .history-row { display:flex; justify-content:space-between; gap:8px; padding:9px 0; border-bottom:1px solid var(--border); font-size:12px; }
+    .history-row:last-child { border-bottom:0; }
+    .v360-tabs { display:flex; gap:6px; overflow-x:auto; padding:4px 0 10px; }
+    .v360-tabs button { flex:0 0 auto; width:auto; margin:0; padding:8px 10px; border-radius:9px; background:var(--card2); color:var(--muted); font-size:10px; }
+    .v360-tabs button.active { background:var(--purple); color:white; }
+    .habit-money-row { display:grid; grid-template-columns:minmax(0,1fr) 110px; gap:8px; align-items:center; padding:7px 0; border-bottom:1px solid var(--border); font-size:12px; }
+    .habit-money-row input { width:100%; min-width:0; padding:7px; color:var(--text); background:var(--card2); border:1px solid var(--border); border-radius:7px; }
+    @media (min-width:760px) {
+      body { max-width:1100px; }
+      #screen-area { padding:24px 28px 90px; }
+      .nav { max-width:1100px; }
+      .summary-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+      .form-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    .vida360-tabs { display:flex; gap:6px; overflow-x:auto; padding:4px 0 10px; scrollbar-width:thin; }
+    .vida360-tabs button { flex:0 0 auto; width:auto; margin:0; padding:8px 10px; border-radius:9px; background:var(--card2); color:var(--muted); font-size:10px; }
+    .vida360-tabs button.active { background:var(--purple); color:#fff; }
+    .v360-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    .v360-metric { background:var(--card2); padding:12px; border-radius:10px; min-width:0; }
+    .v360-metric small { color:var(--muted); display:block; font-size:10px; }
+    .v360-metric strong { display:block; font-size:16px; margin-top:4px; overflow-wrap:anywhere; }
+    .v360-field { display:block; margin:8px 0; font-size:11px; color:var(--muted); }
+    .v360-field input,.v360-field select,.v360-field textarea,.v360-input { display:block; width:100%; padding:10px; margin-top:4px; border:1px solid var(--border); border-radius:8px; background:var(--card2); color:var(--text); font:inherit; }
+    .v360-field textarea { min-height:64px; resize:vertical; }
+    .v360-row { display:flex; gap:8px; align-items:center; }
+    .v360-row > * { min-width:0; flex:1; }
+    .v360-entry { padding:9px 0; border-bottom:1px solid var(--border); font-size:12px; }
+    .v360-entry small { display:block; color:var(--muted); margin-top:3px; }
+    .v360-check { display:flex; align-items:center; gap:8px; padding:8px 0; font-size:12px; }
   </style>
 </head>
 <body>
 <div id="screen-area">
   <!-- HOME -->
   <div class="screen active" id="screen-home">
-    <div style="display:flex; justify-content:space-between; margin-bottom:16px;">
-      <div>
-        <div style="font-size:12px; color:var(--muted)">Welcome back,</div>
-        <div style="font-family:'Orbitron'; font-size:24px; font-weight:900;">KAISUI</div>
-      </div>
-      <div style="background:var(--card2); border-radius:50%; width:44px; height:44px; display:flex; align-items:center; justify-content:center; cursor:pointer;" onclick="goTo('profile')">⚔️</div>
-    </div>
-    
-    <div class="card">
+    <div class="dashboard-header"><div><div class="brand-small">SISTEMA DE GESTÃO PESSOAL</div><h1>KAISUITE</h1><div id="dashboard-date" class="dashboard-date"></div></div><button class="view-badge" onclick="goTo('profile')">Perfil</button></div>
+
+    <div class="card dashboard-xp">
       <div class="stats-grid">
-        <div class="stat-box"><div class="stat-value" id="h-lvl">0</div><div class="stat-label">LEVEL</div></div>
-        <div class="stat-box"><div class="stat-value" style="color:var(--gold)" id="h-coins">0</div><div class="stat-label">COINS</div></div>
-        <div class="stat-box"><div class="stat-value" style="color:var(--blue)" id="h-xp">0</div><div class="stat-label">XP TODAY</div></div>
+        <div class="stat-box"><div class="stat-value" id="h-lvl">0</div><div class="stat-label">NÍVEL</div></div>
+        <div class="stat-box"><div class="stat-value" style="color:var(--gold)" id="h-coins">0</div><div class="stat-label">MOEDAS</div></div>
+        <div class="stat-box"><div class="stat-value" style="color:var(--blue)" id="h-xp">0</div><div class="stat-label">XP HOJE</div></div>
       </div>
       <div class="prog-bar"><div class="prog-fill" id="h-xpbar"></div></div>
       <div style="font-size:11px; text-align:right; margin-top:4px;"><span id="h-xpin">0</span>/1000 XP</div>
       <div id="multiplier-display" style="margin-top:8px; text-align:center;"></div>
     </div>
     
-    <div style="display:flex; gap:8px; margin-bottom:16px;">
-      <div class="stat-box" style="flex:1" onclick="goTo('habits')"><div class="stat-value" style="color:var(--green)" id="h-daily">0</div><div class="stat-label">HABITS</div></div>
-      <div class="stat-box" style="flex:1" onclick="goTo('missions')"><div class="stat-value" style="color:var(--purple)" id="h-missions">0</div><div class="stat-label">MISSIONS</div></div>
-      <div class="stat-box" style="flex:1" onclick="goTo('workouts')"><div class="stat-value" style="color:var(--red)" id="h-workouts">0</div><div class="stat-label">TRAINING</div></div>
-    </div>
+    <div class="summary-section"><h2>Resumo do mês</h2><div class="summary-grid">
+      <div><small>Faturamento</small><strong class="good-value" id="dash-month-gross">R$ 0,00</strong></div>
+      <div><small>Contas pendentes</small><strong id="dash-unpaid">R$ 0,00</strong></div>
+      <div><small>Rotina concluída</small><strong id="dash-routine">0%</strong></div>
+      <div><small>Treinos realizados</small><strong id="dash-training">0</strong></div>
+    </div></div>
+    <div class="card dashboard-habits-summary"><h3>Hábitos de hoje</h3><div class="summary-grid"><div><small>Concluídos</small><strong id="dash-habits-done">0</strong></div><div><small>Pendentes</small><strong id="dash-habits-pending">0</strong></div><div><small>Evitei maus hábitos</small><strong id="dash-bad-avoided">0</strong></div><div><small>Recompensas</small><strong id="dash-habit-earned">R$ 0,00</strong></div><div><small>Custos</small><strong id="dash-habit-cost">R$ 0,00</strong></div><div><small>Saldo de hábitos</small><strong id="dash-habit-balance">R$ 0,00</strong></div></div></div>
     
-    <div class="card">
-      <div style="font-weight:700; margin-bottom:8px;">⚡ TODAY'S HABITS</div>
+    <div class="card dashboard-tasks">
+      <div style="font-weight:700; margin-bottom:8px;">⚡ HÁBITOS DE HOJE</div>
       <div id="h-task-list"></div>
+      <button class="btn btn-primary" onclick="goTo('habits')">Gerenciar hábitos e valores</button>
     </div>
     
-    <div class="card">
-      <div style="font-weight:700; margin-bottom:8px;">☠ BAD HABITS (avoid)</div>
+    <div class="card dashboard-avoid">
+      <div style="font-weight:700; margin-bottom:8px;">☠ MAUS HÁBITOS (evite)</div>
       <div id="h-habits-list"></div>
     </div>
+    <div class="card dashboard-schedule"><div style="font-weight:700; margin-bottom:8px;">📅 PRÓXIMAS ATIVIDADES</div><div id="dashboard-next-activities"></div></div>
+  </div>
+
+  <div class="screen" id="screen-work">
+    <div class="module-heading"><div><p class="brand-small">MÓDULO</p><h2>Trabalho</h2><p>Faturamento e atividade diária</p></div></div>
+    <div class="card date-toolbar"><button class="date-step" aria-label="Dia anterior" onclick="shiftWorkDate(-1)">‹</button><input id="work-date" type="date" aria-label="Data do registro de trabalho"><button class="date-step" aria-label="Próximo dia" onclick="shiftWorkDate(1)">›</button></div>
+    <div class="summary-grid card"><div><small>Faturamento do dia</small><strong id="work-day-total">R$ 0,00</strong></div><div><small>Uber</small><strong id="work-day-uber">R$ 0,00</strong></div><div><small>99</small><strong id="work-day-99">R$ 0,00</strong></div><div><small>Dias trabalhados no mês</small><strong id="work-month-days">0</strong></div></div>
+    <form id="work-form" class="card form-grid">
+      <label class="v360-field">Faturamento Uber (R$)<input name="uber" type="number" min="0" step=".01"></label>
+      <label class="v360-field">Faturamento 99 (R$)<input name="app99" type="number" min="0" step=".01"></label>
+      <label class="v360-field">Horas trabalhadas<input name="hours" type="number" min="0" step=".25"></label>
+      <label class="v360-field">Corridas<input name="rides" type="number" min="0" step="1"></label>
+      <label class="v360-field">Km rodados<input name="km" type="number" min="0" step=".1"></label>
+      <label class="v360-field">Combustível (R$)<input name="fuel" type="number" min="0" step=".01"></label>
+      <label class="v360-field full-field">Observações<textarea name="notes"></textarea></label>
+      <button class="btn btn-primary full-field">Salvar faturamento do dia</button>
+    </form>
+    <div class="card"><h3>Relatório do mês</h3><div class="summary-grid"><div><small>Total Uber</small><strong id="work-month-uber">R$ 0,00</strong></div><div><small>Total 99</small><strong id="work-month-99">R$ 0,00</strong></div><div><small>Média por dia</small><strong id="work-month-average">R$ 0,00</strong></div><div><small>Melhor dia</small><strong id="work-month-best">—</strong></div></div><div id="work-chart" class="daily-chart"></div></div>
+    <div class="card"><h3>Histórico do mês</h3><div id="work-history"></div></div>
   </div>
   
-  <!-- HABITS -->
+  <!-- HÁBITOS -->
   <div class="screen" id="screen-habits">
-    <div style="margin-bottom:16px;"><div class="stat-value" style="font-size:20px;">⚡ Daily Habits</div><div style="font-size:12px; color:var(--muted);">Complete all to get bonus</div></div>
+    <div style="margin-bottom:16px;"><div class="stat-value" style="font-size:20px;">⚡ Hábitos Diários</div><div style="font-size:12px; color:var(--muted);">Configure recompensas e custos individuais</div></div>
     <div id="daily-list"></div>
+    <div class="card"><h3>Valores por hábito</h3><div id="habit-money-config"></div><button class="btn btn-primary" onclick="saveHabitMoney()">Salvar valores</button></div>
+    <div class="card"><h3>Custos dos maus hábitos</h3><div id="bad-habit-money-config"></div><button class="btn btn-primary" onclick="saveHabitMoney()">Salvar valores</button></div>
     <div class="card" style="text-align:center; margin-top:12px;">
       <div class="stat-value" style="font-size:28px; color:var(--red)" id="hp-val">100</div>
-      <div class="stat-label">HEALTH POINTS</div>
+      <div class="stat-label">PONTOS DE VIDA</div>
       <div class="prog-bar"><div class="prog-fill" id="hp-bar" style="background:linear-gradient(90deg,#991b1b,var(--red)); width:100%"></div></div>
-      <button class="btn btn-primary" onclick="recoverHP()">+ RECOVER 20 HP (50 COINS)</button>
-      <div style="font-size:10px; margin-top:6px;" id="hp-recovery-limit">Recoveries: 0/3</div>
+      <button class="btn btn-primary" onclick="recoverHP()">+ RECUPERAR 20 PV (50 MOEDAS)</button>
+      <div style="font-size:10px; margin-top:6px;" id="hp-recovery-limit">Recuperações: 0/3</div>
     </div>
   </div>
   
-  <!-- MISSIONS -->
-  <div class="screen" id="screen-missions">
-    <div style="margin-bottom:16px;"><div class="stat-value" style="font-size:20px;">⚔️ Active Missions</div><div style="font-size:12px; color:var(--muted);">Max 3 at a time</div></div>
-    <div id="active-missions-list"></div>
-    <div style="margin:16px 0;"><div class="stat-value" style="font-size:18px;">📋 Available</div></div>
-    <div id="available-missions-list"></div>
+  <!-- HANDSTAND TREINOS -->
+  <div class="screen" id="screen-training">
+    <div class="module-heading"><div><p class="brand-small">MÓDULO</p><h2>Treinos</h2><p>Registre cargas e acompanhe a evolução</p></div></div>
+    <div class="card date-toolbar"><button class="date-step" aria-label="Dia anterior" onclick="shiftTrainingDate(-1)">‹</button><input id="training-date" type="date" aria-label="Data do treino"><button class="date-step" aria-label="Próximo dia" onclick="shiftTrainingDate(1)">›</button></div>
+    <form id="training-form" class="card"><div id="training-exercises"></div><label class="v360-field">Notas do treino<textarea name="notes"></textarea></label><button class="btn btn-primary">Salvar treino desta data</button></form>
+    <div class="card"><button class="btn btn-danger" onclick="toggleExerciseEditor()">Editar lista de exercícios</button><div id="exercise-editor"></div></div>
+    <div class="card"><h3>Evolução por exercício</h3><label class="v360-field">Exercício<select id="training-chart-exercise"></select></label><div id="training-chart" class="daily-chart"></div></div>
+    <div class="card"><h3>Treinos anteriores</h3><div id="training-history"></div></div>
+    <div class="card"><h3>Prática de bananeira</h3><form id="handstand-form" class="form-grid"><label class="v360-field">Data<input name="date" type="date"></label><label class="v360-field">Minutos praticados<input name="minutes" type="number" min="0" step=".5"></label><button class="btn btn-primary full-field">Registrar prática</button></form><div id="handstand-history"></div></div>
   </div>
   
-  <!-- HANDSTAND TRAINING -->
-  <div class="screen" id="screen-handstand">
-    <div style="margin-bottom:16px;"><div class="stat-value" style="font-size:20px;">🤸 Handstand Progression</div><div style="font-size:12px; color:var(--muted);">Your road to the free handstand</div></div>
-    <div id="handstand-list"></div>
-    <button class="btn btn-success" onclick="markHandstandWorkout()">✅ MARK TODAY'S HANDSTAND WORKOUT</button>
-    <div class="card" style="margin-top:16px; text-align:center;">
-      <div class="stat-value" style="color:var(--gold)" id="workout-streak">0</div>
-      <div class="stat-label">CONSECUTIVE TRAINING DAYS</div>
-    </div>
-  </div>
-  
-  <!-- 100 WORKOUTS -->
-  <div class="screen" id="screen-workouts">
-    <div style="margin-bottom:16px;"><div class="stat-value" style="font-size:20px;">🏆 100 Workout Challenge</div><div style="font-size:12px; color:var(--muted);">Complete 100 workouts to become a legend</div></div>
-    <div class="card" style="text-align:center;">
-      <div class="stat-value" style="font-size:48px; color:var(--purple)" id="w100-count">0</div>
-      <div class="stat-label">WORKOUTS COMPLETED</div>
-      <div class="prog-bar"><div class="prog-fill" id="w100-bar" style="width:0%"></div></div>
-    </div>
-    <div class="stats-grid" style="margin:12px 0;">
-      <div class="stat-box"><div class="stat-value" id="w100-streak">0</div><div class="stat-label">🔥 STREAK</div></div>
-      <div class="stat-box"><div class="stat-value" style="color:var(--gold)" id="w100-max">0</div><div class="stat-label">🏆 MAX</div></div>
-    </div>
-    <div id="w100-message" style="background:rgba(124,58,237,0.1); border-radius:10px; padding:12px; text-align:center; margin-bottom:12px;">🚀 Start your journey!</div>
-    <div class="treino-grid" id="w100-grid" style="display:grid; grid-template-columns:repeat(10,1fr); gap:4px;"></div>
-  </div>
-  
-  <!-- DETAILED DAILY ROUTINE (step by step - ALL IN ENGLISH) -->
+  <!-- ROTINA DIÁRIA -->
   <div class="screen" id="screen-routine">
     <div style="margin-bottom:16px;">
-      <div class="stat-value" style="font-size:20px;">📋 DETAILED DAILY ROUTINE</div>
-      <div style="font-size:12px; color:var(--muted);">Follow every step. Start at 05:00. Dominate your day.</div>
+      <div class="stat-value" style="font-size:20px;">📋 ROTINA DIÁRIA DETALHADA</div>
+      <div style="font-size:12px; color:var(--muted);">Siga sua rotina e acompanhe o progresso do dia.</div>
     </div>
+    <div class="card date-toolbar routine-toolbar"><div class="routine-date-controls"><button class="date-step" aria-label="Dia anterior" onclick="shiftRoutineDate(-1)">‹</button><label class="routine-date-display"><span>Rotina do dia</span><strong id="routine-date-label">Data selecionada</strong><span class="routine-calendar-icon" aria-hidden="true">▦</span><input id="routine-date" type="date" aria-label="Selecionar data da rotina"></label><button class="date-step" aria-label="Próximo dia" onclick="shiftRoutineDate(1)">›</button></div></div>
     
     <!-- PROGRESS SUMMARY -->
     <div class="card" style="text-align:center; background:linear-gradient(135deg, var(--card2), rgba(124,58,237,0.1));">
       <div class="stat-value" id="routine-progress-percent">0%</div>
-      <div class="stat-label">COMPLETED TODAY</div>
+      <div class="stat-label">CONCLUÍDO HOJE</div>
       <div class="prog-bar"><div class="prog-fill" id="routine-progress-bar" style="width:0%"></div></div>
-      <div style="font-size:11px; margin-top:6px;"><span id="routine-completed-count">0</span>/<span id="routine-total-count">0</span> steps</div>
+      <div style="font-size:11px; margin-top:6px;"><span id="routine-completed-count">0</span>/<span id="routine-total-count">0</span> etapas</div>
     </div>
     
     <div id="routine-container"></div>
-    
-    <button class="btn btn-success" onclick="completeRoutineDay()" style="margin-top:8px;">🏆 COMPLETE FULL ROUTINE (BONUS)</button>
-    <button class="btn btn-danger" onclick="resetRoutine()">⟳ Reset today's checklist</button>
+
+    <button class="btn btn-success" onclick="completeRoutineDay()" style="margin-top:8px;">🏆 CONCLUIR ROTINA COMPLETA (BÔNUS)</button>
+  </div>
+
+  <div class="screen" id="screen-finances">
+    <div class="module-heading"><div><p class="brand-small">MÓDULO</p><h2>Finanças</h2><p>Contas, pagamentos e metas</p></div></div>
+    <div class="card date-toolbar"><button class="date-step" aria-label="Mês anterior" onclick="shiftFinanceMonth(-1)">‹</button><input id="finance-month" type="month" aria-label="Mês das contas"><button class="date-step" aria-label="Próximo mês" onclick="shiftFinanceMonth(1)">›</button></div>
+    <div class="card"><h3>Contas do mês</h3><div id="monthly-bills"></div><form id="bill-form" class="form-grid"><label class="v360-field">Nome da conta<input name="name" required></label><label class="v360-field">Valor (R$)<input name="amount" type="number" min="0" step=".01" required></label><label class="v360-field">Vencimento (dia)<input name="dueDay" type="number" min="1" max="31" placeholder="Opcional"></label><label class="v360-field">Categoria<select name="category"><option>Moradia</option><option>Transporte</option><option>Alimentação</option><option>Serviços</option><option>Impostos</option><option>Saúde</option><option>Outros</option></select></label><label class="v360-check full-field"><input name="recurring" type="checkbox" checked> Repetir nos próximos meses</label><button class="btn btn-primary full-field">Adicionar conta</button></form></div>
+    <div class="card"><h3>Resumo do mês</h3><div class="summary-grid"><div><small>Valor total</small><strong id="bill-total">R$ 0,00</strong></div><div><small>Já pago</small><strong id="bill-paid">R$ 0,00</strong></div><div><small>Falta pagar</small><strong id="bill-pending">R$ 0,00</strong></div><div><small>Contas pagas / pendentes</small><strong id="bill-counts">0 / 0</strong></div></div></div>
+    <div class="card"><h3>Metas de economia mensal</h3><form id="savings-form" class="form-grid"><label class="v360-field">Futuro / reserva (R$)<input name="saveFuture" type="number" min="0" step=".01"></label><label class="v360-field">Futura casa (R$)<input name="saveHouse" type="number" min="0" step=".01"></label><button class="btn btn-primary full-field">Salvar metas</button></form><div id="savings-total"></div></div>
+    <div class="card"><h3>Lançamentos financeiros</h3><form id="transaction-form" class="form-grid"><label class="v360-field">Data<input name="date" type="date"></label><label class="v360-field">Tipo<select name="type"><option value="despesa">Despesa</option><option value="receita">Receita</option></select></label><label class="v360-field">Valor (R$)<input name="amount" type="number" min="0" step=".01"></label><label class="v360-field">Descrição<input name="desc"></label><button class="btn btn-primary full-field">Registrar lançamento</button></form><div id="transaction-list"></div></div>
+  </div>
+
+  <div class="screen" id="screen-vida360">
+    <div style="margin-bottom:12px;"><div class="stat-value" style="font-size:20px;">🌐 VIDA 360</div><div style="font-size:12px; color:var(--muted);">Trabalho, finanças, saúde e desenvolvimento pessoal</div></div>
+    <div id="vida360-app"></div>
   </div>
   
   <!-- PROFILE -->
   <div class="screen" id="screen-profile">
-    <div style="margin-bottom:16px;"><div class="stat-value" style="font-size:20px;">👤 Profile</div></div>
+    <div style="margin-bottom:16px;"><div class="stat-value" style="font-size:20px;">👤 Perfil</div></div>
     <div class="card" style="text-align:center;">
       <div class="stat-value" style="font-size:32px;">⚔️</div>
       <div class="stat-value" style="font-size:18px;" id="p-name">KAISUI</div>
-      <div style="color:var(--gold); font-size:12px;" id="p-rank">THE FEARFUL</div>
+      <div style="color:var(--gold); font-size:12px;" id="p-rank">O TEMEROSO</div>
     </div>
     <div class="card">
-      <div style="font-weight:700;">ATTRIBUTES</div>
+      <div style="font-weight:700;">ATRIBUTOS</div>
       <div id="p-stats"></div>
     </div>
-    <button class="btn btn-danger" onclick="resetGame()">⟳ RESET PROGRESS</button>
+    <button class="btn btn-danger" onclick="resetGame()">⟳ REINICIAR PROGRESSO</button>
   </div>
 </div>
 
 <nav class="nav">
-  <button class="nav-btn active" onclick="goTo('home')" id="nav-home"><span class="nav-icon">🏠</span>Home</button>
-  <button class="nav-btn" onclick="goTo('habits')" id="nav-habits"><span class="nav-icon">⚡</span>Habits</button>
-  <button class="nav-btn" onclick="goTo('missions')" id="nav-missions"><span class="nav-icon">⚔️</span>Missions</button>
-  <button class="nav-btn" onclick="goTo('handstand')" id="nav-handstand"><span class="nav-icon">🤸</span>Handstand</button>
-  <button class="nav-btn" onclick="goTo('workouts')" id="nav-workouts"><span class="nav-icon">🏆</span>100</button>
-  <button class="nav-btn" onclick="goTo('routine')" id="nav-routine"><span class="nav-icon">📋</span>Routine</button>
-  <button class="nav-btn" onclick="goTo('profile')" id="nav-profile"><span class="nav-icon">👤</span>Profile</button>
+  <button class="nav-btn active" onclick="goTo('home')" id="nav-home" aria-current="page"><span class="nav-icon">🏠</span>Início</button>
+  <button class="nav-btn" onclick="goTo('work')" id="nav-work"><span class="nav-icon">♧</span>Trabalho</button>
+  <button class="nav-btn" onclick="goTo('training')" id="nav-training"><span class="nav-icon">🏋️</span>Treinos</button>
+  <button class="nav-btn" onclick="goTo('routine')" id="nav-routine"><span class="nav-icon">📋</span>Rotina</button>
+  <button class="nav-btn" onclick="goTo('finances')" id="nav-finances"><span class="nav-icon">▱</span>Finanças</button>
 </nav>
 
 <div class="overlay" id="overlay" onclick="closeModal()"><div class="modal" id="modal-body"></div></div>
@@ -408,5 +519,24 @@
 <div class="lvlup" id="lvlup"></div>
 
 <script src="js/app.js"></script>
+<script>
+  if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+    const refreshKey = "kaisui-sw-controller-refresh";
+    if (sessionStorage.getItem(refreshKey)) sessionStorage.removeItem(refreshKey);
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (sessionStorage.getItem(refreshKey)) return;
+      sessionStorage.setItem(refreshKey, "1");
+      location.reload();
+    });
+    window.addEventListener("load", async () => {
+      try {
+        const registration = await navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" });
+        await registration.update();
+      } catch (error) {
+        console.warn("Não foi possível verificar atualizações do KaiSuite.", error);
+      }
+    });
+  }
+</script>
 </body>
 </html>

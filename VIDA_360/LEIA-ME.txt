@@ -1,0 +1,15 @@
+VIDA 360 — primeira versão
+
+Como usar:
+1. Extraia o arquivo ZIP.
+2. Abra index.html no navegador para testar.
+3. Para publicar e instalar como PWA, hospede a pasta em um serviço HTTPS (por exemplo GitHub Pages).
+4. No Android/Chrome, abra o endereço publicado e use “Adicionar à tela inicial”.
+
+Os dados são salvos no localStorage deste navegador/dispositivo. Exporte backups regularmente em Revisão ou no botão do cabeçalho. Não limpe os dados do navegador sem antes exportar.
+
+Observações:
+- O app separa faturamento bruto e reserva da moto; não calcula lucro líquido completo automaticamente.
+- A rotina da igreja aparece terça e domingo.
+- A prática de bananeira é registrada separadamente do treino fullbody.
+- Use áudio enquanto pilota, sem tocar no celular; vídeos e roleplays apenas parado.

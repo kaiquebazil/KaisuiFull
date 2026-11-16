@@ -1,20 +1,25 @@
-# KaisuiFull
+# KAISUITE
 
-Sistema de Evolução Pessoal gamificado que transforma tarefas diárias em uma experiência de RPG.
+Sistema de gestão pessoal com rotina, hábitos, trabalho, treinos e finanças em um único painel.
 
 ## 🚀 Funcionalidades
 
-- Sistema de XP e Nível
-- Gerenciamento de moedas (Coins) e recompensas
-- Acompanhamento de hábitos e missões
-- Suporte a PWA (Progressive Web App)
+- Painel inicial com resumo mensal
+- Trabalho com faturamento separado por aplicativo e relatórios mensais
+- Treinos com exercícios editáveis, histórico por data e gráficos de carga
+- Rotina diária editável e histórico por data
+- Finanças com contas recorrentes por mês, pagamentos, metas e lançamentos
+- Hábitos com valores configuráveis e registro financeiro
+- Módulos complementares do Vida 360: inglês, moto, projeto de 180 dias e revisão
+- Armazenamento local e exportação de backup
+- Suporte a aplicativo web progressivo (PWA)
 - Interface futurista e responsiva
 
 ## 🛠️ Tecnologias Utilizadas
 
 - HTML5
 - CSS3 (Custom Properties, Flexbox, Grid)
-- JavaScript Vanilla
+- JavaScript puro
 - Service Workers (PWA)
 
 ## 📦 Como Executar

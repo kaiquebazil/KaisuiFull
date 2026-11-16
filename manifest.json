@@ -1,7 +1,7 @@
 {
-  "name": "KAISUI - Sistema de Evolução Pessoal",
-  "short_name": "KAISUI",
-  "description": "Sistema de evolução pessoal focado em hábitos e missões.",
+  "name": "KaiSuite - Sistema de Gestão Pessoal",
+  "short_name": "KaiSuite",
+  "description": "Gestão pessoal integrada com rotina, trabalho, treinos e finanças.",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#0a0a0c",
